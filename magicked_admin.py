@@ -1,11 +1,18 @@
-from PySide2.QtWidgets import QApplication
-from PySide2.QtQuick import QQuickView
-from PySide2.QtCore import QUrl
+import sys
 
-app = QApplication([])
-view = QQuickView()
-url = QUrl("magicked_admin.qml")
+from PySide2.QtCore import QUrl, QStringListModel
+from PySide2.QtGui import QGuiApplication
+from PySide2.QtQml import QQmlApplicationEngine
 
-view.setSource(url)
-view.show()
-app.exec_()
+if __name__ == '__main__':
+    app = QGuiApplication(sys.argv)
+    model = QStringListModel()
+    model.setStringList(["hi", "ho"])
+
+    engine = QQmlApplicationEngine()
+    engine.rootContext().setContextProperty("myModel", model)
+    engine.load(QUrl.fromLocalFile('magicked_admin.qml'))
+
+    if not engine.rootObjects():
+        sys.exit(-1)
+    sys.exit(app.exec_())

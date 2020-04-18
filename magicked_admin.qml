@@ -5,8 +5,8 @@ import QtQuick.Controls.Imagine 2.3
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.14
 import QtWebEngine 1.10
-//import QtWebSockets 1.1
-//import QtWebView 1.14
+// import QtWebSockets 1.1
+// import QtWebView 1.14
 import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
@@ -19,7 +19,7 @@ ApplicationWindow {
     header: TabBar {
         id: bar
         width: parent.width
-        anchors.top: parent.top
+        // anchors.top: parent.top
         anchors.topMargin: 0
         visible: true
         enabled: true
@@ -74,7 +74,7 @@ ApplicationWindow {
                 height: 720
                 visible: true
 
-                Image {
+                /*Image {
                     id: image
                     x: 339
                     y: 88
@@ -82,7 +82,7 @@ ApplicationWindow {
                     height: 198
                     source: "../../Images/Screenshot_972.png"
                     fillMode: Image.PreserveAspectFit
-                }
+                }*/
 
                 Button {
                     id: button
@@ -508,7 +508,7 @@ ApplicationWindow {
             ScrollView {
                 width: 1280
                 height: 720
-                WebEngineView {
+                /*WebEngineView {
                     id: webview
                     url: "http://127.0.0.1:8081"
                     anchors.fill: parent
@@ -520,7 +520,7 @@ ApplicationWindow {
                             request.action = WebView.IgnoreRequest;
                         }
                     }
-                }
+                }*/
             }
         }
         Item {
@@ -650,7 +650,3 @@ ApplicationWindow {
         }
     }
 }
-
-
-
-
