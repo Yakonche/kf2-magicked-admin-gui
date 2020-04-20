@@ -4,10 +4,10 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Imagine 2.3
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.14
-//import QtWebEngine 1.10
-//import QtWebSockets 1.1
-//import QtWebView 1.14
-//import QtWebEngine.Controls1Delegates 1.0
+import QtWebEngine 1.10
+import QtWebSockets 1.1
+import QtWebView 1.14
+import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
     id: applicationWindow
@@ -512,10 +512,9 @@ ApplicationWindow {
         Item {
             id: webadmintab
             visible: false
-            /*ScrollView {
+            ScrollView {
                 width: 1280
                 height: 720
-                visible: true
                 WebEngineView {
                     id: webview
                     url: "http://127.0.0.1:8081/ServerAdmin/current/info"
@@ -529,7 +528,7 @@ ApplicationWindow {
                         }
                     }
                 }
-            }*/
+            }
         }
         Item {
             id: optionstab
@@ -642,17 +641,7 @@ ApplicationWindow {
                     }
                     title: qsTr("Language Console")
                 }
-
-
-
-
-
-
             }
-
-
-
-
         }
         Item {
             id: helptab
@@ -704,10 +693,3 @@ ApplicationWindow {
     }
 }
 
-
-
-/*##^##
-Designer {
-    D{i:11;invisible:true}
-}
-##^##*/
