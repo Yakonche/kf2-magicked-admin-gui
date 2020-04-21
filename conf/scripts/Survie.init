@@ -1,0 +1,7 @@
+start_wc -qw -1 -- say Le boss est en route
+start_trc -q -- say Le trader est ouvert
+start_trc -q -- top_wave_kills
+silent -q
+run Bienvenue
+start_tc -rt 60 -- update_motd -q kills
+silent -q

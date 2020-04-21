@@ -1,0 +1,7 @@
+start_wc -qw 254 -- say Have you come this far ?!! Congratulations !!!
+start_trc -q -- say Please skip trader, for that press Escape and click on "skip trader", thanks ^^
+start_trc -q -- top_wave_kills
+silent -q
+run ServerXP
+start_tc -rt 60 -- update_motd -q kills
+silent -q

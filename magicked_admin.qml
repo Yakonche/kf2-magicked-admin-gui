@@ -4,17 +4,17 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Imagine 2.3
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.14
-import QtWebEngine 1.10
-// import QtWebSockets 1.1
-// import QtWebView 1.14
-import QtWebEngine.Controls1Delegates 1.0
+//import QtWebEngine 1.10
+//import QtWebSockets 1.1
+//import QtWebView 1.14
+//import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
     id: applicationWindow
     width: 1280
     height: 720
     visible: true
-    title: 'KF2 Magicked Admin GUI 0.1.6'
+    title: 'KF2 Magicked Admin 0.1.6'
 
     header: TabBar {
         id: bar
@@ -25,6 +25,7 @@ ApplicationWindow {
         enabled: true
         TabButton {
             text: "KF2 Magicked Admin"
+            visible: true
             checked: false
         }
         TabButton {
@@ -37,7 +38,6 @@ ApplicationWindow {
         }
         TabButton {
             text: 'Ranking'
-            visible: true
             checked: false
         }
         TabButton {
@@ -46,12 +46,10 @@ ApplicationWindow {
         }
         TabButton {
             text: 'WebAdmin'
-            visible: true
             checked: false
         }
         TabButton {
             text: 'Options'
-            visible: true
             checked: false
         }
         TabButton {
@@ -65,7 +63,7 @@ ApplicationWindow {
         currentIndex: bar.currentIndex
         Item {
             id: kf2magickedadmintab
-            visible: false
+            visible: true
             Page {
                 id: page
                 x: 0
@@ -91,6 +89,15 @@ ApplicationWindow {
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
+                }
+
+                Button {
+                    id: button20
+                    x: 585
+                    y: 466
+                    width: 112
+                    height: 48
+                    text: qsTr("Stop KF2-MA")
                 }
             }
         }
@@ -504,13 +511,14 @@ ApplicationWindow {
         }
         Item {
             id: webadmintab
-            visible: true
-            ScrollView {
+            visible: false
+            /*ScrollView {
                 width: 1280
                 height: 720
-                /*WebEngineView {
+                visible: true
+                WebEngineView {
                     id: webview
-                    url: "http://127.0.0.1:8081"
+                    url: "http://127.0.0.1:8081/ServerAdmin/current/info"
                     anchors.fill: parent
                     onNavigationRequested: {
                         var schemaRE = /^\w+:/;
@@ -520,8 +528,8 @@ ApplicationWindow {
                             request.action = WebView.IgnoreRequest;
                         }
                     }
-                }*/
-            }
+                }
+            }*/
         }
         Item {
             id: optionstab
@@ -536,58 +544,103 @@ ApplicationWindow {
 
                 Button {
                     id: button19
-                    x: 39
-                    y: 153
+                    x: 26
+                    y: 294
                     text: qsTr("Remove all patches and reconfigure a clean server")
                     visible: true
                 }
 
                 Switch {
                     id: element16
-                    x: 39
-                    y: 265
+                    x: 26
+                    y: 406
                     text: qsTr("Theme Black / White")
+                    enabled: false
                     visible: true
                 }
 
                 CheckBox {
                     id: checkBox
-                    x: 39
-                    y: 209
+                    x: 26
+                    y: 350
                     width: 202
                     height: 40
                     text: qsTr("KF2-MA auto launch at the start")
                     visible: true
                 }
 
-                ComboBox {
-                    id: combobox
-                    x: 39
-                    y: 41
-                    width: 149
-                    height: 40
-                    visible: true
-                    editable: false
-                    model: ListModel {
-                        ListElement { text: "English en_GB" }
-                        ListElement { text: "French fr_FR" }
-                        ListElement { text: "Spanish es_ES" }
-                        ListElement { text: "Deutch de_DE" }
-                    }
-                    onAccepted: {
-                        if (find(editText) === -1)
-                            model.append({text: editText})
-                    }
-                }
-
                 Button {
                     id: button18
-                    x: 39
-                    y: 98
+                    x: 26
+                    y: 239
                     width: 132
                     height: 40
                     text: qsTr("Reset Raking / Stats")
                     visible: true
+                }
+
+                GroupBox {
+                    id: groupBox
+                    x: 26
+                    y: 19
+                    width: 120
+                    height: 90
+                    title: qsTr("Language GUI")
+
+                    ComboBox {
+                        id: combobox
+                        x: 1
+                        y: 4
+                        width: 92
+                        height: 40
+                        visible: true
+                        editable: false
+                        model: ListModel {
+                            ListElement { text: "English" }
+                            ListElement { text: "French" }
+                            ListElement { text: "Spanish" }
+                            ListElement { text: "Deutch" }
+                        }
+                        onAccepted: {
+                            if (find(editText) === -1)
+                                model.append({text: editText})
+                        }
+                    }
+                }
+
+                GroupBox {
+                    id: groupBox1
+                    x: 26
+                    y: 125
+                    width: 120
+                    height: 89
+                    ComboBox {
+                        id: combobox1
+                        x: 1
+                        y: 4
+                        width: 92
+                        height: 40
+                        model: ListModel {
+                            ListElement {
+                                text: "English"
+                            }
+
+                            ListElement {
+                                text: "French"
+                            }
+
+                            ListElement {
+                                text: "Spanish"
+                            }
+
+                            ListElement {
+                                text: "Deutch"
+                            }
+                        }
+                        editable: false
+                        visible: true
+                    }
+                    title: qsTr("Language Console")
                 }
 
 
@@ -650,3 +703,11 @@ ApplicationWindow {
         }
     }
 }
+
+
+
+/*##^##
+Designer {
+    D{i:11;invisible:true}
+}
+##^##*/

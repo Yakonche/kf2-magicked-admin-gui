@@ -1,0 +1,10 @@
+start_wc -qw -1 -- say Le boss est en route...
+start_wc -qw 23 -- say Les ZEDs affluent en masse dans votre direction...
+start_wc -qw 42 -- say Il n'est pas permis de perdre a cette manche
+start_wc -qw 254 -- say T'es un malade, mais t'as reussis, gg
+start_trc -q -- say Le trader est ouvert
+start_trc -q -- top_wave_kills
+silent -q
+run Bienvenue
+start_tc -rt 60 -- update_motd -q kills
+silent -q

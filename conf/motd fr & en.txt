@@ -1,0 +1,17 @@
+FR
+
+<font color="#FF0000" size="23">Top des joueurs par Kills :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]</font>
+<font color="#FF0000" size="23">Top des joueurs par Dosh :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]</font>
+<font color="#FF0000" size="23">Top des joueurs par Temps :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]</font>
+
+
+EN
+<font color="#FF0000" size="23Top Players by Kills :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_K</font>]</font>
+<font color="#FF0000" size="23">Top Players by Dosh :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_D</font>]</font>
+<font color="#FF0000" size="23">Top Players by Temps :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR_T</font>]</font>

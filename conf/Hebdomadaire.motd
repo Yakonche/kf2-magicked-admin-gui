@@ -1,0 +1,11 @@
+<font color="#00BFFF" size="25">Bienvenue sur mon serveur Hebdomadaire ! <font color="#0055A4" size="25">Heberger</font> <font color="#FFFFFF" size="25">en</font> <font color="#EF4135" size="25">France</font></font>
+<font color="#9400D3" size="23">Nombre de cartes : <font color="#FFFAFA" size="23">32</font> | Server IP : <font color="#FFFAFA" size="23">85.168.60.156:7787</font></font>
+<font color="#9400D3" size="23">Total Kills = <font color="#00BFFF" size="23">%SRV_K</font> | Total Dosh = <font color="#00BFFF" size="23">%SRV_D</font></font>
+
+<font color="#FF0000" size="23">Top des joueurs par nombre de Kills :</font>
+<font color="#FF8C00" size="23">1. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		2. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		3. %PLR [<font color="#00BFFF" size="23">%SCR</font>]</font>
+<font color="#FF8C00" size="23">4. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		5. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		6. %PLR [<font color="#00BFFF" size="23">%SCR</font>]</font>
+<font color="#FF8C00" size="23">7. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		8. %PLR [<font color="#00BFFF" size="23">%SCR</font>]		9. %PLR [<font color="#00BFFF" size="23">%SCR</font>]</font>
+
+<font color="#9400D3" size="20">Commandes des joueurs : </font><font color="#98FB98" size="20">!commands, !map, !record_wave, !top_kills, !top_dosh, !top_time, !top_wave_kills, !top_wave_dosh, !server_kills, !server_dosh, !sb, !game, !maps, !player_count, !stats, !kills, !dosh</font>
+<font color="#9400D3" size="17">Vous pouvez ajouter le nom du joueur qui vous intéresse aux 3 dernières commandes pour obtenir des informations sur lui, sinon, cela affichera vos propres informations. Vous pouvez aussi rajouter "-h" après une commande pour avoir des explications sur celle-ci</font>
