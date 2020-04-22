@@ -91,9 +91,11 @@ ApplicationWindow {
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
-                    onClicked: {
-
-                    }
+                    MouseArea {
+                     id: buttonMouseArea
+                     objectName: "buttonMouseArea"
+                     anchors.fill: parent
+                     }
                 }
 
                 Button {

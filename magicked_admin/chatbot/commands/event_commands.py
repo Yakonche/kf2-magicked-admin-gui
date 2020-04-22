@@ -1,10 +1,10 @@
 import gettext
 
-from chatbot.command_scheduler import (CommandOnJoin, CommandOnTime,
+from magicked_admin.chatbot.command_scheduler import (CommandOnJoin, CommandOnTime,
                                        CommandOnTrader, CommandOnWave)
 from . import ALL_WAVES
 from .command import Command
-from utils import warning
+from magicked_admin.utils import warning
 
 _ = gettext.gettext
 

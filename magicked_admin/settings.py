@@ -3,8 +3,8 @@ import gettext
 import os
 from getpass import getpass
 
-from utils import die, fatal, find_data_file, info
-from utils.net import resolve_address
+from magicked_admin.utils import die, fatal, find_data_file, info
+from magicked_admin.utils.net import resolve_address
 
 _ = gettext.gettext
 

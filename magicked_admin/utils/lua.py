@@ -1,4 +1,4 @@
-from utils import find_data_file
+from magicked_admin.utils import find_data_file
 
 
 def load_script(filename):

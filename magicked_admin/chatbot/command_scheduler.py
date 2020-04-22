@@ -2,12 +2,12 @@ import gettext
 import threading
 import time
 
-from chatbot.commands.command import Command
-from chatbot.commands import ALL_WAVES
-from utils import warning
-from utils.time import seconds_to_hhmmss
-from web_admin.chat import ChatListener
-from web_admin.constants import *
+from magicked_admin.chatbot.commands.command import Command
+from magicked_admin.chatbot.commands import ALL_WAVES
+from magicked_admin.utils import warning
+from magicked_admin.utils.time import seconds_to_hhmmss
+from magicked_admin.web_admin.chat import ChatListener
+from magicked_admin.web_admin.constants import *
 
 _ = gettext.gettext
 

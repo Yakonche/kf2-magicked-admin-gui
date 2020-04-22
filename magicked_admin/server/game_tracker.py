@@ -5,8 +5,8 @@ import time
 from colorama import init
 from termcolor import colored
 
-from utils import BANNER_URL, warning
-from web_admin.constants import *
+from magicked_admin.utils import BANNER_URL, warning
+from magicked_admin.web_admin.constants import *
 
 _ = gettext.gettext
 init()

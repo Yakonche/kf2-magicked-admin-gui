@@ -8,11 +8,10 @@ import sys
 import os
 
 import magicked_admin.magicked_admin
-from magicked_admin import magicked_admin
 
-from PySide2.QtCore import QUrl, QStringListModel, QObject
+from PySide2.QtCore import QUrl, QStringListModel, QObject, QtCore
 from PySide2.QtGui import QGuiApplication
-from PySide2.QtQml import QQmlApplicationEngine, QQmlStackLayout, QQmlButton
+from PySide2.QtQml import QQmlApplicationEngine
 
 def launch_ma():
     os.system("magicked_admin 1")
@@ -22,8 +21,8 @@ if __name__ == '__main__':
     model = QStringListModel()
     model.setStringList(["hi", "ho"])
 
-    button = QQmlButton("LaunchKF2MA")
-    button.clicked.connect(launch_ma)
+    button = root.findChild(QtCore.QObject,"buttonMouseArea")
+    button.clicked.connect(os.system("magicked_admin 1"))
 
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("myModel", model)

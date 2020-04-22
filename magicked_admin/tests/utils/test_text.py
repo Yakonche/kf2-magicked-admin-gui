@@ -1,6 +1,6 @@
 import pytest
 
-from utils.text import (millify, pad_output, str_to_bool,
+from magicked_admin.utils.text import (millify, pad_output, str_to_bool,
                         trim_string)
 
 

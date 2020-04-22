@@ -1,7 +1,7 @@
 import pytest
 from unittest import mock
 from requests import Session
-from tests.web_admin.mock_session import MockSession
+from magicked_admin.tests.web_admin.mock_session import MockSession
 
 from web_admin.web_interface import WebInterface
 

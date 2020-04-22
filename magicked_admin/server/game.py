@@ -1,7 +1,7 @@
 import gettext
 
-import web_admin as api
-from web_admin.constants import *
+import magicked_admin.web_admin as api
+from magicked_admin.web_admin.constants import *
 
 _ = gettext.gettext
 
