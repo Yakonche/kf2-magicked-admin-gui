@@ -1,0 +1,93 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<%news%>
+
+<fieldset id="notesField" title="Here you can leave some notes. They will be stored on the server so other administrators can see and edit them.">
+<legend align="center">Notes</legend>
+<form action="<%page.fulluri%>" method="post" id="notesForm">
+<div>
+<textarea id="notes" name="notes" rows="5" cols="80" style="width:100%;"><%notes%></textarea>
+</div>
+<div id="notectrl">
+<button type="submit" name="action" value="save">Save</button>
+</div>
+</form>
+</fieldset>
+
+<table width="100%" id="currentinfo">
+<colgroup>
+    <col width="25%"/>
+    <col width="25%"/>
+    <col width="50%"/>
+</colgroup>
+<tr>
+<td>
+
+<h3 align="center">Current Game</h3>
+
+<div class="section">
+<dl id="currentGame">
+    <dt align="center">Server Name</dt>
+    <dd align="center"><%server.name%></dd>
+    <dt align="center">Cheat Protection</dt>
+    <dd align="center"><%server.anticheat%></dd>
+    <dt align="center">Game type</dt>
+    <dd align="center" title="<%game.type%>"><%game.name%></dd>
+    <dt align="center">Map</dt>
+    <dd align="center" title="<%map.name%>"><%map.title.safe%></dd>
+    <dt align="center">Mutators</dt>
+    <dd align="center"><%rules.mutators%></dd>
+</dl>
+</div>
+</td>
+<td>
+
+<h3 align="center">Rules</h3>
+<div align="center" class="section">
+<dl align="center" id="currentRules">
+<%rules%>
+</dl>
+</div>
+</td>
+
+<td>
+<h3 align="center">Players</h3>
+<div class="section narrow">
+<table id="players" class="grid" width="100%">
+<thead>
+<tr>
+    <th align="center">&#160;</th>
+    <th align="center"><a href="<%page.fulluri%>?sortby=name&amp;reverse=<%reverse.name%>" class="sortable <%sorted.name%>">Name</a></th>
+    <th align="center"><a href="<%page.fulluri%>?sortby=perk&amp;reverse=<%reverse.perk%>" class="sortable <%sorted.perk%>">Perk</th>
+    <th align="center"><a href="<%page.fulluri%>?sortby=score&amp;reverse=<%reverse.score%>" class="sortable <%sorted.score%>">Dosh</a></th>
+    <th align="center">Health</th>
+    <th align="center"><a href="<%page.fulluri%>?sortby=kills&amp;reverse=<%reverse.kills%>" class="sortable <%sorted.kills%>">Kills</a></th>
+    <th align="center"><a href="<%page.fulluri%>?sortby=ping&amp;reverse=<%reverse.ping%>" class="sortable <%sorted.ping%>">Ping</a></th>
+    <th align="center">Admin</th>
+</tr>
+</thead>
+<tbody>
+<%players%>
+</tbody>
+</table>
+
+<%spectators%>
+</div>
+</td>
+</tr>
+</table>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var pageUri = '<%page.fulluri%>';
+//]]>
+</script>
+<script type="text/javascript" src="/images/current.js?gzip"></script>
+
+</div>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->
