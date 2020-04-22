@@ -84,18 +84,22 @@ ApplicationWindow {
 
                 Button {
                     id: button
-                    signal messageRequired
+                    signal clicked()
                     objectName: "LaunchKF2MA"
                     x: 585
                     y: 405
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
-                    MouseArea {
-                     id: buttonMouseArea
-                     objectName: "buttonMouseArea"
-                     anchors.fill: parent
-                     }
+                    anchors.rightMargin: 583
+                    anchors.bottomMargin: 266
+                    anchors.leftMargin: 585
+                    anchors.topMargin: 406
+                    anchors.fill: parent
+                    onClicked: {
+                        parent.clicked()
+                    }
+
                 }
 
                 Button {
@@ -118,382 +122,262 @@ ApplicationWindow {
                 width: 1261
                 height: 720
 
-                ProgressBar {
-                    id: progressBar15
-                    x: 470
-                    y: 140
-                    width: 281
-                    height: 10
-                    value: 0.5
-                }
-
                 Button {
                     id: button16
-                    x: 470
-                    y: 86
+                    x: 21
+                    y: 603
                     width: 140
                     height: 57
                     text: qsTr("Install KF2-MA")
-                }
 
-                Text {
-                    id: element14
-                    x: 576
-                    y: 32
-                    width: 386
-                    height: 27
-                    text: qsTr("Display more than 1000 map preview of custom map in gamesummary")
-                    font.pixelSize: 12
-                }
-
-                ProgressBar {
-                    id: progressBar14
-                    x: 470
-                    y: 60
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar15
+                        x: 0
+                        y: 56
+                        width: 281
+                        height: 10
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button15
-                    x: 470
-                    y: 19
+                    x: 21
+                    y: 195
                     text: qsTr("Patch ")
-                }
-
-                Text {
-                    id: element11
-                    x: 127
-                    y: 633
-                    width: 217
-                    height: 27
-                    text: qsTr("Show the Save button for saving notes")
-                    font.pixelSize: 12
-
-                    Button {
-                        id: button13
-                        x: 21
-                        y: 540
-                        text: qsTr("Patch ")
-                    }
-
-                    ProgressBar {
-                        id: progressBar12
-                        x: 21
-                        y: 581
-                        value: 0.5
-                    }
 
                     Text {
-                        id: element12
-                        x: 127
-                        y: 553
-                        width: 285
+                        id: element14
+                        x: 108
+                        y: 13
+                        width: 386
                         height: 27
-                        text: qsTr("Allows you to modify the .css files in folder /images")
+                        text: qsTr("Display more than 1000 map preview of custom map in gamesummary")
                         font.pixelSize: 12
                     }
 
-                    Button {
-                        id: button14
-                        x: 30
-                        y: 549
-                        text: qsTr("Patch ")
-                    }
-
                     ProgressBar {
-                        id: progressBar13
-                        x: 30
-                        y: 590
+                        id: progressBar14
+                        x: 0
+                        y: 34
                         value: 0.5
-                    }
-
-                    Text {
-                        id: element13
-                        x: 136
-                        y: 562
-                        width: 285
-                        height: 27
-                        text: qsTr("Allows you to modify the .css files in folder /images")
-                        font.pixelSize: 12
                     }
                 }
 
                 Button {
                     id: button12
                     x: 21
-                    y: 620
+                    y: 543
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element9
-                    x: 127
-                    y: 573
-                    width: 237
-                    height: 27
-                    text: qsTr("Addition of Wave and Difficulty in rules list")
-                    font.pixelSize: 12
-
-                    Button {
-                        id: button11
-                        x: 21
-                        y: 540
-                        text: qsTr("Patch ")
+                    Text {
+                        id: element11
+                        x: 105
+                        y: 13
+                        width: 217
+                        height: 27
+                        text: qsTr("Show the Save button for saving notes")
+                        font.pixelSize: 12
                     }
 
                     ProgressBar {
-                        id: progressBar10
-                        x: 21
-                        y: 581
+                        id: progressBar11
+                        x: 0
+                        y: 40
                         value: 0.5
                     }
-
-                    Text {
-                        id: element10
-                        x: 127
-                        y: 553
-                        width: 285
-                        height: 27
-                        text: qsTr("Allows you to modify the .css files in folder /images")
-                        font.pixelSize: 12
-                    }
-                }
-
-                ProgressBar {
-                    id: progressBar9
-                    x: 21
-                    y: 601
-                    value: 0.5
                 }
 
                 Button {
                     id: button10
                     x: 21
-                    y: 560
+                    y: 485
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element8
-                    x: 127
-                    y: 513
-                    width: 285
-                    height: 27
-                    text: qsTr("Allows you to modify the .css files in folder /images")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element9
+                        x: 106
+                        y: 13
+                        width: 237
+                        height: 27
+                        text: qsTr("Addition of Wave and Difficulty in rules list")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar8
-                    x: 21
-                    y: 541
-                    value: 0.5
-                }
-
-                Button {
-                    id: button9
-                    x: 21
-                    y: 500
-                    text: qsTr("Patch ")
-                }
-
-                Text {
-                    id: element7
-                    x: 127
-                    y: 450
-                    width: 257
-                    height: 27
-                    text: qsTr("Addition of a tooltip for each columnin Players")
-                    font.pixelSize: 12
-                }
-
-                ProgressBar {
-                    id: progressBar7
-                    x: 21
-                    y: 478
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar9
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button8
                     x: 21
-                    y: 437
+                    y: 427
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element6
-                    x: 127
-                    y: 392
-                    width: 263
-                    height: 27
-                    text: qsTr("Generate a link to the steam profile of a player")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element7
+                        x: 108
+                        y: 13
+                        width: 257
+                        height: 27
+                        text: qsTr("Addition of a tooltip for each columnin Players")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar6
-                    x: 21
-                    y: 420
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar7
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button7
                     x: 21
-                    y: 379
+                    y: 369
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element5
-                    x: 127
-                    y: 333
-                    width: 303
-                    height: 27
-                    text: qsTr("The update of gamesummary goes from 30 sec to 1 sec")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element6
+                        x: 106
+                        y: 13
+                        width: 263
+                        height: 27
+                        text: qsTr("Generate a link to the steam profile of a player")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar5
-                    x: 21
-                    y: 361
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar6
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button6
                     x: 21
-                    y: 320
+                    y: 311
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element4
-                    x: 127
-                    y: 270
-                    width: 244
-                    height: 27
-                    text: qsTr("Fast naviguation buttons to any other server")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element5
+                        x: 108
+                        y: 13
+                        width: 303
+                        height: 27
+                        text: qsTr("The update of gamesummary goes from 30 sec to 1 sec")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar4
-                    x: 21
-                    y: 298
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar5
+                        x: 0
+                        y: 34
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button5
                     x: 21
-                    y: 257
+                    y: 253
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element3
-                    x: 127
-                    y: 211
-                    width: 197
-                    height: 27
-                    text: qsTr("Difficulty in Endless mode's rule list")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element4
+                        x: 108
+                        y: 13
+                        width: 244
+                        height: 27
+                        text: qsTr("Fast naviguation buttons to any other server")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar3
-                    x: 21
-                    y: 239
-                    value: 0.5
-                }
-
-                Button {
-                    id: button4
-                    x: 21
-                    y: 198
-                    text: qsTr("Patch ")
-                }
-
-                Text {
-                    id: element2
-                    x: 127
-                    y: 153
-                    width: 303
-                    height: 27
-                    text: qsTr("Allows to see level of players in Server Info and Players")
-                    font.pixelSize: 12
-                }
-
-                ProgressBar {
-                    id: progressBar2
-                    x: 21
-                    y: 181
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar4
+                        x: 0
+                        y: 34
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button3
                     x: 21
-                    y: 140
+                    y: 137
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element1
-                    x: 127
-                    y: 93
-                    width: 252
-                    height: 27
-                    text: qsTr("Add Wave counterand Timer in Endless mode")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element2
+                        x: 108
+                        y: 13
+                        width: 303
+                        height: 27
+                        text: qsTr("Allows to see level of players in Server Info and Players")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar1
-                    x: 21
-                    y: 121
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar2
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button2
                     x: 21
-                    y: 80
+                    y: 79
                     text: qsTr("Patch ")
-                }
 
-                Text {
-                    id: element
-                    x: 127
-                    y: 32
-                    width: 197
-                    height: 27
-                    text: qsTr("Add Wave counter in Endless mode")
-                    font.pixelSize: 12
-                }
+                    Text {
+                        id: element1
+                        x: 106
+                        y: 13
+                        width: 252
+                        height: 27
+                        text: qsTr("Add Wave counterand Timer in Endless mode")
+                        font.pixelSize: 12
+                    }
 
-                ProgressBar {
-                    id: progressBar
-                    x: 21
-                    y: 60
-                    value: 0.5
+                    ProgressBar {
+                        id: progressBar1
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
 
                 Button {
                     id: button1
                     x: 21
-                    y: 19
+                    y: 21
                     text: qsTr("Patch ")
-                }
 
-                ProgressBar {
-                    id: progressBar11
-                    x: 21
-                    y: 661
-                    value: 0.5
+                    Text {
+                        id: element
+                        x: 106
+                        y: 13
+                        width: 197
+                        height: 27
+                        text: qsTr("Add Wave counter in Endless mode")
+                        font.pixelSize: 12
+                    }
+
+                    ProgressBar {
+                        id: progressBar
+                        x: 0
+                        y: 40
+                        value: 0.5
+                    }
                 }
             }
         }
@@ -539,7 +423,7 @@ ApplicationWindow {
         }
         Item {
             id: optionstab
-            visible: true
+            visible: false
             Page {
                 id: page2
                 x: 0
