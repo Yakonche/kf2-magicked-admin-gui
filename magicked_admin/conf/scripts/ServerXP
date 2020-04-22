@@ -1,0 +1,11 @@
+; %PLR - Pseudonyme
+; %BCK - Affiche "back" si joueurs s'est déjà connecté auparavant sur le serveur
+; %DSH - Nombre de dosh gagnés par le joueur
+; %DRK - Rang du joueur dans le classement du nombre de dosh gagnés
+; %KLL - Nombres de ZEDs tués par le joueur
+; %KRK - Rang du joueur dans le classement du nombre de ZEDs tués
+; %TME - Temps de jeu total du joueur
+; %TRK - Rang du joueur dans le classement du temps de jeu
+; %SES - Sessions
+start_jc -q -- say \nWelcome %BCK %PLR !\nYou've killed %KLL ZEDs (rank %KRK)\nEarned %DSH dosh (rank %DRK) and\nPlayed for %TME (rank %TRK) over %SES sessions.
+say -q Le script ServerXP a demarrer

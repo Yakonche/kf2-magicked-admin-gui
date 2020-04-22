@@ -84,11 +84,16 @@ ApplicationWindow {
 
                 Button {
                     id: button
+                    signal messageRequired
+                    objectName: "LaunchKF2MA"
                     x: 585
                     y: 405
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
+                    onClicked: {
+
+                    }
                 }
 
                 Button {
@@ -97,7 +102,7 @@ ApplicationWindow {
                     y: 466
                     width: 112
                     height: 48
-                    text: qsTr("Stop KF2-MA")
+                    text: qsTr("Close KF2-MA")
                 }
             }
         }

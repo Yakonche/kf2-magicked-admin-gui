@@ -1,0 +1,27 @@
+start_wc -qw -1 -- say Le boss est en route
+start_wc -qw 10 -- say Vague 10, c'est un bon début, mais tu reste un ptit joueur
+start_wc -qw 15 -- say Vague 15, ça commence à se corser tout doucement =)
+start_wc -qw 20 -- say Vague 20, tu commence à stresser le patriarche
+start_wc -qw 23 -- say Vague 23, oui j'aime le nombre 23 alors j'ai mis un commentaire à cette vague
+start_wc -qw 25 -- say Vague 25, généralement tout le monde crève à cette manche ^^
+start_wc -qw 30 -- say Vague 30, bonne chance.
+start_wc -qw 35 -- say Vague 35, tu commence à gérer, mais calme toi
+start_wc -qw 40 -- say Vague 40, tu joue en normal c'est obligé
+start_wc -qw 42 -- say Vague 42, j'aime aussi le nombre 42, mais tout le monde s'en branle
+start_wc -qw 45 -- say Vague 45, je ne sait plus quoi dire, je commence à en avoir marre
+start_wc -qw 50 -- say Vague 50, dis, tu veux pas crever ? ça m'éviterais d'avoir à paramétrer des lignes de dialogue en +
+start_wc -qw 55 -- say Vague 55, mais c'est pas possible je vais pas faire toute les vague quand même
+start_wc -qw 60 -- say Vague 60, en tout cas félicitation à toi, moi ça m'aurais déjà sâoulé
+start_wc -qw 65 -- say Vague 65, tu est téméraire, c'est bien
+start_wc -qw 69 -- say Comment traduit-on le chiffre 69 en japonais ? ... Kisuski ! (oui j'ai honte de moi)
+start_wc -qw 70 -- say Vague 70, je vais pas coder des lignes de dialogue jusqu'à la vague 254 quand même
+start_wc -qw 75 -- say Vague 75, bon je te dis tchao moi hein, vais aller mater un film sur netflix
+start_wc -qw 100 -- say Vague 100, hein ? t'est toujours là toi ? oO Mais vas te coucher, t'assez xp pour aujourd'hui
+start_wc -qw 250 -- say Vague 250, tu te rend compte que j'ai eu le temps de dormir une nuit entière espèce de malade ?
+start_wc -qw 254 -- say Vague 254, t'as pris du speed pour arriver jusque là avoue
+start_trc -q say Le trader est ouvert
+start_trc -q -- top_wave_kills
+silent -q
+run Bienvenue
+start_tc -rt 60 -- update_motd -q kills
+silent -q
