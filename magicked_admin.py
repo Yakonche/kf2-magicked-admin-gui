@@ -9,14 +9,13 @@ import os
 
 import magicked_admin.magicked_admin
 
-from Qt import QtWidgets
-
 from PySide2.QtCore import QUrl, QStringListModel
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtQml import QQmlApplicationEngine
 
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
+    os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
+    app = QGuiApplication(sys.argv)
     model = QStringListModel()
     model.setStringList(["hi", "ho"])
 

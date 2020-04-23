@@ -11,6 +11,7 @@ import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
     id: applicationWindow
+    Material.theme: Material.Dark
     width: 1280
     height: 720
     visible: true
@@ -81,10 +82,10 @@ ApplicationWindow {
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
-                    anchors.rightMargin: 583
+                    anchors.rightMargin: 569
                     anchors.bottomMargin: 270
-                    anchors.leftMargin: 585
-                    anchors.topMargin: 402
+                    anchors.leftMargin: 569
+                    anchors.topMargin: 397
                     anchors.fill: parent
                     onClicked: {
                         parent.clicked()
@@ -96,10 +97,10 @@ ApplicationWindow {
                     id: buttonclose
                     signal clicked()
                     objectName: "CloseKF2MA"
-                    x: 585
-                    y: 467
-                    width: 112
-                    height: 48
+                    x: 569
+                    y: 472
+                    width: 142
+                    height: 53
                     text: qsTr("Close KF2-MA")
                 }
 
@@ -124,13 +125,14 @@ ApplicationWindow {
         }
         Item {
             id: patchestab
-            visible: true
+            visible: false
             Page {
                 id: page1
                 x: 0
                 y: 0
-                width: 1261
+                width: 1280
                 height: 720
+                visible: true
 
                 Button {
                     id: buttoninstall
@@ -139,15 +141,6 @@ ApplicationWindow {
                     width: 140
                     height: 57
                     text: qsTr("Install KF2-MA")
-
-                    ProgressBar {
-                        id: progressBarinstall
-                        x: 0
-                        y: 56
-                        width: 281
-                        height: 10
-                        value: 0.5
-                    }
                 }
 
                 Button {
@@ -158,19 +151,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementmap
-                        x: 108
+                        x: 70
                         y: 13
                         width: 386
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Display more than 1000 map preview of custom map in gamesummary")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarmap
-                        x: 0
-                        y: 34
-                        value: 0.5
                     }
                 }
 
@@ -182,19 +169,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementshownotes
-                        x: 105
+                        x: 68
                         y: 13
                         width: 217
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Show the Save button for saving notes")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarshownotes
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
 
@@ -206,19 +187,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementrules
-                        x: 106
+                        x: 68
                         y: 13
                         width: 237
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Addition of Wave and Difficulty in rules list")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarrules
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
 
@@ -230,19 +205,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementlink
-                        x: 106
+                        x: 68
                         y: 13
                         width: 263
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Generate a link to the steam profile of a player")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarlink
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
 
@@ -254,19 +223,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementgamesummarysec
-                        x: 108
+                        x: 68
                         y: 13
                         width: 303
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("The update of gamesummary goes from 30 sec to 1 sec")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBargamesummarysec
-                        x: 0
-                        y: 34
-                        value: 0.5
                     }
                 }
 
@@ -278,19 +241,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementfastnav
-                        x: 108
+                        x: 70
                         y: 13
                         width: 244
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Fast naviguation buttons to any other server")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarfastnav
-                        x: 0
-                        y: 34
-                        value: 0.5
                     }
                 }
 
@@ -302,19 +259,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementlevel
-                        x: 108
+                        x: 70
                         y: 13
                         width: 303
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Allows to see level of players in Server Info and Players")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarlevel
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
 
@@ -326,19 +277,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementwavetimer
-                        x: 106
+                        x: 71
                         y: 13
                         width: 252
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Add Wave counterand Timer in Endless mode")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarwavetimer
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
 
@@ -350,19 +295,13 @@ ApplicationWindow {
 
                     Text {
                         id: elementwave
-                        x: 106
+                        x: 74
                         y: 13
                         width: 197
                         height: 27
+                        color: "#ffffff"
                         text: qsTr("Add Wave counter in Endless mode")
                         font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBarwave
-                        x: 0
-                        y: 40
-                        value: 0.5
                     }
                 }
             }
@@ -382,6 +321,7 @@ ApplicationWindow {
                 y: 275
                 width: 408
                 height: 18
+                color: "#ffffff"
                 text: qsTr("Modify magicked_admin.conf, fastnav.inc, .motd and WebAdmin browser")
                 font.pixelSize: 12
             }
@@ -410,7 +350,7 @@ ApplicationWindow {
 
         Item {
             id: optionstab
-            visible: true
+            visible: false
 
             Page {
                 id: page2
@@ -429,13 +369,10 @@ ApplicationWindow {
                 }
 
                 Switch {
-                    id: elementtheme
                     x: 26
-                    y: 406
+                    y: 403
                     text: qsTr("Theme Black / White")
-                    enabled: false
-                    visible: true
-                }
+                    }
 
                 CheckBox {
                     id: checkBoxautolaunch
@@ -545,9 +482,9 @@ ApplicationWindow {
                     Button {
                         id: buttonweb
                         x: 402
-                        y: 210
-                        width: 139
-                        height: 20
+                        y: 202
+                        width: 254
+                        height: 41
                         text: qsTr("https://kf2-ma.th3-z.xyz")
                         font.weight: Font.Light
                         focusPolicy: Qt.StrongFocus
