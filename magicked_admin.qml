@@ -81,6 +81,10 @@ ApplicationWindow {
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
+                    anchors.rightMargin: 583
+                    anchors.bottomMargin: 270
+                    anchors.leftMargin: 585
+                    anchors.topMargin: 402
                     anchors.fill: parent
                     onClicked: {
                         parent.clicked()
@@ -107,6 +111,14 @@ ApplicationWindow {
                     height: 229
                     source: "home.png"
                     fillMode: Image.PreserveAspectFit
+
+                    MouseArea {
+                        id: mouseArea
+                        x: 343
+                        y: 159
+                        width: 355
+                        height: 33
+                    }
                 }
             }
         }
@@ -395,9 +407,11 @@ ApplicationWindow {
                 }
             }
         }
+
         Item {
             id: optionstab
-            visible: false
+            visible: true
+
             Page {
                 id: page2
                 x: 0
@@ -510,7 +524,7 @@ ApplicationWindow {
         }
         Item {
             id: helptab
-            visible: false
+            visible: true
             Page {
                 id: page3
                 x: 0
@@ -530,10 +544,10 @@ ApplicationWindow {
 
                     Button {
                         id: buttonweb
-                        x: 410
-                        y: 212
+                        x: 402
+                        y: 210
                         width: 139
-                        height: 40
+                        height: 20
                         text: qsTr("https://kf2-ma.th3-z.xyz")
                         font.weight: Font.Light
                         focusPolicy: Qt.StrongFocus
