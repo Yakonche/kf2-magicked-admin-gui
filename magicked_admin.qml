@@ -63,7 +63,7 @@ ApplicationWindow {
         currentIndex: bar.currentIndex
         Item {
             id: kf2magickedadmintab
-            visible: true
+            visible: false
             Page {
                 id: page
                 x: 0
@@ -72,18 +72,8 @@ ApplicationWindow {
                 height: 720
                 visible: true
 
-                /*Image {
-                    id: image
-                    x: 339
-                    y: 88
-                    width: 603
-                    height: 198
-                    source: "../../Images/Screenshot_972.png"
-                    fillMode: Image.PreserveAspectFit
-                }*/
-
                 Button {
-                    id: button
+                    id: buttonlaunch
                     signal clicked()
                     objectName: "LaunchKF2MA"
                     x: 585
@@ -91,10 +81,6 @@ ApplicationWindow {
                     width: 112
                     height: 48
                     text: qsTr("Launch KF2-MA")
-                    anchors.rightMargin: 583
-                    anchors.bottomMargin: 266
-                    anchors.leftMargin: 585
-                    anchors.topMargin: 406
                     anchors.fill: parent
                     onClicked: {
                         parent.clicked()
@@ -103,18 +89,30 @@ ApplicationWindow {
                 }
 
                 Button {
-                    id: button20
+                    id: buttonclose
+                    signal clicked()
+                    objectName: "CloseKF2MA"
                     x: 585
-                    y: 466
+                    y: 467
                     width: 112
                     height: 48
                     text: qsTr("Close KF2-MA")
+                }
+
+                Image {
+                    id: imagehome
+                    x: 287
+                    y: 103
+                    width: 706
+                    height: 229
+                    source: "home.png"
+                    fillMode: Image.PreserveAspectFit
                 }
             }
         }
         Item {
             id: patchestab
-            visible: false
+            visible: true
             Page {
                 id: page1
                 x: 0
@@ -123,15 +121,15 @@ ApplicationWindow {
                 height: 720
 
                 Button {
-                    id: button16
+                    id: buttoninstall
                     x: 21
-                    y: 603
+                    y: 560
                     width: 140
                     height: 57
                     text: qsTr("Install KF2-MA")
 
                     ProgressBar {
-                        id: progressBar15
+                        id: progressBarinstall
                         x: 0
                         y: 56
                         width: 281
@@ -147,7 +145,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element14
+                        id: elementmap
                         x: 108
                         y: 13
                         width: 386
@@ -157,7 +155,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar14
+                        id: progressBarmap
                         x: 0
                         y: 34
                         value: 0.5
@@ -167,11 +165,11 @@ ApplicationWindow {
                 Button {
                     id: button12
                     x: 21
-                    y: 543
+                    y: 496
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element11
+                        id: elementshownotes
                         x: 105
                         y: 13
                         width: 217
@@ -181,7 +179,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar11
+                        id: progressBarshownotes
                         x: 0
                         y: 40
                         value: 0.5
@@ -191,11 +189,11 @@ ApplicationWindow {
                 Button {
                     id: button10
                     x: 21
-                    y: 485
+                    y: 431
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element9
+                        id: elementrules
                         x: 106
                         y: 13
                         width: 237
@@ -205,31 +203,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar9
-                        x: 0
-                        y: 40
-                        value: 0.5
-                    }
-                }
-
-                Button {
-                    id: button8
-                    x: 21
-                    y: 427
-                    text: qsTr("Patch ")
-
-                    Text {
-                        id: element7
-                        x: 108
-                        y: 13
-                        width: 257
-                        height: 27
-                        text: qsTr("Addition of a tooltip for each columnin Players")
-                        font.pixelSize: 12
-                    }
-
-                    ProgressBar {
-                        id: progressBar7
+                        id: progressBarrules
                         x: 0
                         y: 40
                         value: 0.5
@@ -243,7 +217,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element6
+                        id: elementlink
                         x: 106
                         y: 13
                         width: 263
@@ -253,7 +227,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar6
+                        id: progressBarlink
                         x: 0
                         y: 40
                         value: 0.5
@@ -267,7 +241,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element5
+                        id: elementgamesummarysec
                         x: 108
                         y: 13
                         width: 303
@@ -277,7 +251,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar5
+                        id: progressBargamesummarysec
                         x: 0
                         y: 34
                         value: 0.5
@@ -291,7 +265,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element4
+                        id: elementfastnav
                         x: 108
                         y: 13
                         width: 244
@@ -301,7 +275,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar4
+                        id: progressBarfastnav
                         x: 0
                         y: 34
                         value: 0.5
@@ -315,7 +289,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element2
+                        id: elementlevel
                         x: 108
                         y: 13
                         width: 303
@@ -325,7 +299,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar2
+                        id: progressBarlevel
                         x: 0
                         y: 40
                         value: 0.5
@@ -339,7 +313,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element1
+                        id: elementwavetimer
                         x: 106
                         y: 13
                         width: 252
@@ -349,7 +323,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar1
+                        id: progressBarwavetimer
                         x: 0
                         y: 40
                         value: 0.5
@@ -363,7 +337,7 @@ ApplicationWindow {
                     text: qsTr("Patch ")
 
                     Text {
-                        id: element
+                        id: elementwave
                         x: 106
                         y: 13
                         width: 197
@@ -373,7 +347,7 @@ ApplicationWindow {
                     }
 
                     ProgressBar {
-                        id: progressBar
+                        id: progressBarwave
                         x: 0
                         y: 40
                         value: 0.5
@@ -433,7 +407,7 @@ ApplicationWindow {
                 visible: true
 
                 Button {
-                    id: button19
+                    id: buttonremove
                     x: 26
                     y: 294
                     text: qsTr("Remove all patches and reconfigure a clean server")
@@ -441,7 +415,7 @@ ApplicationWindow {
                 }
 
                 Switch {
-                    id: element16
+                    id: elementtheme
                     x: 26
                     y: 406
                     text: qsTr("Theme Black / White")
@@ -450,7 +424,7 @@ ApplicationWindow {
                 }
 
                 CheckBox {
-                    id: checkBox
+                    id: checkBoxautolaunch
                     x: 26
                     y: 350
                     width: 202
@@ -460,7 +434,7 @@ ApplicationWindow {
                 }
 
                 Button {
-                    id: button18
+                    id: buttonresetstat
                     x: 26
                     y: 239
                     width: 132
@@ -470,7 +444,7 @@ ApplicationWindow {
                 }
 
                 GroupBox {
-                    id: groupBox
+                    id: groupBoxgui
                     x: 26
                     y: 19
                     width: 120
@@ -478,7 +452,7 @@ ApplicationWindow {
                     title: qsTr("Language GUI")
 
                     ComboBox {
-                        id: combobox
+                        id: comboboxgui
                         x: 1
                         y: 4
                         width: 92
@@ -499,17 +473,20 @@ ApplicationWindow {
                 }
 
                 GroupBox {
-                    id: groupBox1
+                    id: groupBoxconsole
                     x: 26
                     y: 125
                     width: 120
                     height: 89
+                    title: qsTr("Language Console")
                     ComboBox {
-                        id: combobox1
+                        id: comboboxconsole
                         x: 1
                         y: 4
                         width: 92
                         height: 40
+                        editable: false
+                        visible: true
                         model: ListModel {
                             ListElement {
                                 text: "English"
@@ -527,10 +504,7 @@ ApplicationWindow {
                                 text: "Deutch"
                             }
                         }
-                        editable: false
-                        visible: true
                     }
-                    title: qsTr("Language Console")
                 }
             }
         }
@@ -545,42 +519,29 @@ ApplicationWindow {
                 height: 720
                 visible: true
 
-                Button {
-                    id: button17
-                    x: 1102
-                    y: 32
-                    width: 139
-                    height: 40
-                    text: qsTr("https://kf2-ma.th3-z.xyz")
-                    font.weight: Font.Light
-                    focusPolicy: Qt.StrongFocus
-                    checked: false
-                    display: AbstractButton.TextBesideIcon
-                }
+                Image {
+                    id: imagehelp
+                    x: 366
+                    y: 0
+                    width: 549
+                    height: 720
+                    source: "help.png"
+                    fillMode: Image.PreserveAspectFit
 
-                TextArea {
-                    id: textArea
-                    x: 44
-                    y: 32
-                    width: 468
-                    height: 478
-                    color: "#020202"
-                    text: qsTr("<b><u>Utility of each tab :</u></b>\n\n<br /><br /><b><u>KF2 Magicked Admin :</b></o> For launching the software KF2-Magicked-Admin, for more informations about the utility of KF2-MA, please read <p><font size=3><a href=https://steamcommunity.com/sharedfiles/filedetails/?id=1324364024 title=Guide>this guide</a></font></p> \n\n<br /><br /><b><u>Install Patches :</b></u> Select the modification who you want on your WebAdmin panel\n\n<br /><br /><b><u>Console :</b></u> All the information on all the servers currently launched on KF2-MA\n\n<br /><b><u><br />Ranking :</b></u> Select the server from which you wish to obtain the ranking of the players and various other statistics\n\n<br /><br /><b><u>Configure :</b></u> Allows you to directly and quickly modify .conf, .motd, and other scripts directly from the software interface\n\n<br /><br /><b><u>WebAdmin :</b></u> Access directly at your WebAdmin panel\n\n<br /><br /><b><u>Options :</b></u> Select language and others parameters")
-                    font.underline: false
-                    font.bold: false
-                    font.pointSize: 13
-                    font.family: "Arial"
-                    renderType: Text.NativeRendering
-                    horizontalAlignment: Text.AlignLeft
-                    wrapMode: Text.WordWrap
-                    font.capitalization: Font.MixedCase
-                    placeholderText: ""
-                    font.preferShaping: false
-                    textFormat: Text.RichText
-                    font.weight: Font.Black
+                    Button {
+                        id: buttonweb
+                        x: 410
+                        y: 212
+                        width: 139
+                        height: 40
+                        text: qsTr("https://kf2-ma.th3-z.xyz")
+                        font.weight: Font.Light
+                        focusPolicy: Qt.StrongFocus
+                        checked: false
+                        display: AbstractButton.TextBesideIcon
+                    }
                 }
             }
         }
     }
 }
-
