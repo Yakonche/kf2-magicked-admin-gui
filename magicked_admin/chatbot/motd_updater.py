@@ -1,8 +1,8 @@
 import gettext
 from os import path
 
-from magicked_admin.utils import debug, find_data_file, warning
-from magicked_admin.utils.text import millify, trim_string
+from utils import debug, find_data_file, warning
+from utils.text import millify, trim_string
 
 _ = gettext.gettext
 

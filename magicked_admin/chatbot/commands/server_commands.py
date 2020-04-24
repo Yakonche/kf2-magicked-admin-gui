@@ -1,10 +1,10 @@
 from os import path
 import gettext
 
-import magicked_admin.server.game as game
+import server.game as game
 from .command import Command
-from magicked_admin.utils import find_data_file
-from magicked_admin.web_admin.constants import *
+from utils import find_data_file
+from web_admin.constants import *
 
 _ = gettext.gettext
 

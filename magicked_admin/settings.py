@@ -1,10 +1,40 @@
 import configparser
 import gettext
 import os
-from getpass import getpass
+import sys
 
-from magicked_admin.utils import die, fatal, find_data_file, info
-from magicked_admin.utils.net import resolve_address
+from utils import die, fatal, find_data_file, info, warning
+from utils.net import resolve_address
+
+try:
+    from getch import getch
+    getch_av = True
+except ImportError:
+    try:
+        from msvcrt import getch
+        getch_av = True
+    except ImportError:
+        from getpass import getpass
+        getch_av = False
+
+# if getch is available, implement getpass() with asterisks
+if getch_av:
+    def getpass(prompt):
+        print(prompt, end='', flush=True)
+        buf = ''
+        while True:
+            ch = getch()
+            if ch in ['\n', '\r', '\r\n', '\n\r']:
+                print('')
+                break
+            else:
+                buf += str(ch)
+                print('*', end='', flush=True)
+        return buf
+else:
+    warning("getch unavailable")
+if not sys.stdin.isatty():
+    warning("Bad terminal")
 
 _ = gettext.gettext
 
@@ -22,21 +52,22 @@ SETTINGS_DEFAULT = {
 SETTINGS_REQUIRED = ['address', 'username', 'password']
 
 CONFIG_DIE_MESG = _("Please correct this manually  or delete '{}' to create "
-                    "a clean config next run.").format(CONFIG_PATH)
+                    "a clean config next run.").format(CONFIG_PATH_DISPLAY)
 
 
 class Settings:
-    def __init__(self, skip_setup=False):
-        if not os.path.exists(CONFIG_PATH):
-            info(_("No configuration was found, first time setup is "
-                   "required!"))
+    def __init__(self, config_filename, skip_setup=False, reconfigure=False):
+        if not os.path.exists(config_filename) or reconfigure:
+            if not reconfigure:
+                info(_("No configuration was found, first time setup is "
+                       "required!"))
 
             if not skip_setup:
                 config = self.construct_config_interactive()
             else:
                 config = self.construct_config_template()
 
-            with open(CONFIG_PATH, 'w') as config_file:
+            with open(config_filename, 'w') as config_file:
                 config.write(config_file)
 
             if skip_setup:
@@ -47,7 +78,7 @@ class Settings:
 
         try:
             self.config = configparser.ConfigParser()
-            self.config.read(CONFIG_PATH)
+            self.config.read(config_filename)
 
         except configparser.DuplicateOptionError as e:
             fatal(_("Configuration error(s) found!\nSection '{}' has a "
@@ -68,13 +99,21 @@ class Settings:
         except configparser.NoOptionError:
             return None
 
-    def sections(self):
-        return self.config.sections()
+    def servers(self):
+        servers = []
+        sections = self.config.sections()
+        for section in sections:
+            if section != "magicked_admin":
+                servers.append(section)
+
+        return servers
 
     @staticmethod
     def construct_config_interactive():
         print(_("    Please input your web admin details below."))
         new_config = configparser.ConfigParser()
+        new_config.add_section('magicked_admin')
+        new_config.set('magicked_admin', 'language', 'en_GB')
         new_config.add_section(SETTINGS_DEFAULT['server_name'])
 
         for setting in SETTINGS_DEFAULT:
@@ -95,8 +134,16 @@ class Settings:
                       "'ip:port', 'domain', or 'domain:port'"))
 
         username = input(_("Username [default - Admin]: ")) or "Admin"
-        password = getpass(
-            _("Password (will not echo) [default - 123]: ")) or "123"
+
+        if not sys.stdin.isatty():
+            os.system("stty -echo")
+            password = input("Password (will not echo) [default - 123]: ")
+            os.system("stty echo")
+        else:
+            password_prompt = _("Password") + (
+                "" if getch_av else _(" (will not echo)")
+            ) + _(" [default - 123]: ")
+            password = getpass(password_prompt) or "123"
         print()  # \n
 
         new_config.set(SETTINGS_DEFAULT['server_name'], 'address',
@@ -109,6 +156,8 @@ class Settings:
     @staticmethod
     def construct_config_template():
         new_config = configparser.ConfigParser()
+        new_config.add_section('magicked_admin')
+        new_config.set('magicked_admin', 'language', 'en_GB')
         new_config.add_section(SETTINGS_DEFAULT['server_name'])
 
         for setting in SETTINGS_DEFAULT:
@@ -126,10 +175,18 @@ class Settings:
         new_config.set(SETTINGS_DEFAULT['server_name'], 'password', "123")
         return new_config
 
-    @staticmethod
-    def validate_config(config):
-        sections = config.sections()
+    def validate_config(self, config):
+        sections = self.servers()
         errors = []
+
+        try:
+            config.get('magicked_admin', 'language')
+        except configparser.NoSectionError:
+            errors.append(
+                _("Config file is missing 'magicked_admin' section.")
+            )
+        except configparser.NoOptionError:
+            errors.append(_("Config file is missing language."))
 
         if len(sections) < 1:
             errors.append(_("Config file has no sections."))

@@ -3,10 +3,10 @@ import time
 import gettext
 
 from .command import Command
-from magicked_admin.server.player import Player
-from magicked_admin.utils import find_data_file
-from magicked_admin.utils.text import millify
-from magicked_admin.utils.time import seconds_to_hhmmss
+from server.player import Player
+from utils import find_data_file
+from utils.text import millify
+from utils.time import seconds_to_hhmmss
 
 _ = gettext.gettext
 

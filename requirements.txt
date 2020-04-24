@@ -1,2 +1,15 @@
- pyside2
- 
+pyside2
+requests
+lxml
+colorama
+termcolor
+cx_Freeze
+certifi
+babel
+isort
+flake8
+pytest
+pytest-cov
+patch==1.*
+lupa
+getch

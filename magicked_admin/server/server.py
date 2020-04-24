@@ -3,9 +3,9 @@ import sys
 
 from termcolor import colored
 
-from magicked_admin.server.player import Player
-from magicked_admin.utils import debug, warning, info
-from magicked_admin.web_admin.constants import *
+from server.player import Player
+from utils import debug, warning, info
+from web_admin.constants import *
 
 _ = gettext.gettext
 

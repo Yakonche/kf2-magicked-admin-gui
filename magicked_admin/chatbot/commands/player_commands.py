@@ -1,8 +1,8 @@
 import gettext
 
 from .command import Command
-from magicked_admin.utils.text import millify, trim_string
-from magicked_admin.utils.time import seconds_to_hhmmss
+from utils.text import millify, trim_string
+from utils.time import seconds_to_hhmmss
 
 _ = gettext.gettext
 

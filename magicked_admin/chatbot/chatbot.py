@@ -1,10 +1,10 @@
 import gettext
 from os import path
 
-from magicked_admin.chatbot import INIT_TEMPLATE
-from magicked_admin.utils import debug, find_data_file
-from magicked_admin.web_admin.chat import ChatListener
-from magicked_admin.web_admin.constants import *
+from chatbot import INIT_TEMPLATE
+from utils import debug, find_data_file
+from web_admin.chat import ChatListener
+from web_admin.constants import *
 
 _ = gettext.gettext
 

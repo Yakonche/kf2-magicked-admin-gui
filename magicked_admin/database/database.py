@@ -3,7 +3,7 @@ import sqlite3
 from os import path
 from threading import Lock
 
-from magicked_admin.utils import find_data_file, info
+from utils import find_data_file, info
 
 _ = gettext.gettext
 lock = Lock()
