@@ -1,3 +1,10 @@
-*.pyproject.user
-*.swp
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Editor files
+*.pyproject.user*
+.*.swp
+.*.swo
+.idea/
 
