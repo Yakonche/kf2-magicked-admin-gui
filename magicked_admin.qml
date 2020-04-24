@@ -363,22 +363,26 @@ ApplicationWindow {
                 Button {
                     id: buttonremove
                     x: 26
-                    y: 294
+                    y: 276
+                    width: 395
+                    height: 40
                     text: qsTr("Remove all patches and reconfigure a clean server")
                     visible: true
                 }
 
                 Switch {
                     x: 26
-                    y: 403
+                    y: 368
+                    width: 262
+                    height: 40
                     text: qsTr("Theme Black / White")
-                    }
+                }
 
                 CheckBox {
                     id: checkBoxautolaunch
                     x: 26
-                    y: 350
-                    width: 202
+                    y: 322
+                    width: 262
                     height: 40
                     text: qsTr("KF2-MA auto launch at the start")
                     visible: true
@@ -387,8 +391,8 @@ ApplicationWindow {
                 Button {
                     id: buttonresetstat
                     x: 26
-                    y: 239
-                    width: 132
+                    y: 230
+                    width: 165
                     height: 40
                     text: qsTr("Reset Raking / Stats")
                     visible: true
@@ -398,15 +402,15 @@ ApplicationWindow {
                     id: groupBoxgui
                     x: 26
                     y: 19
-                    width: 120
-                    height: 90
+                    width: 139
+                    height: 85
                     title: qsTr("Language GUI")
 
                     ComboBox {
                         id: comboboxgui
-                        x: 1
-                        y: 4
-                        width: 92
+                        x: 4
+                        y: 0
+                        width: 107
                         height: 40
                         visible: true
                         editable: false
@@ -427,14 +431,14 @@ ApplicationWindow {
                     id: groupBoxconsole
                     x: 26
                     y: 125
-                    width: 120
-                    height: 89
+                    width: 139
+                    height: 85
                     title: qsTr("Language Console")
                     ComboBox {
                         id: comboboxconsole
-                        x: 1
-                        y: 4
-                        width: 92
+                        x: 4
+                        y: 0
+                        width: 107
                         height: 40
                         editable: false
                         visible: true
@@ -470,6 +474,19 @@ ApplicationWindow {
                 height: 720
                 visible: true
 
+                Button {
+                    id: buttonweb
+                    x: 1052
+                    y: 14
+                    width: 204
+                    height: 41
+                    text: qsTr("https://kf2-ma.th3-z.xyz")
+                    font.weight: Font.Light
+                    focusPolicy: Qt.StrongFocus
+                    checked: false
+                    display: AbstractButton.TextBesideIcon
+                }
+
                 Image {
                     id: imagehelp
                     x: 366
@@ -478,21 +495,14 @@ ApplicationWindow {
                     height: 720
                     source: "help.png"
                     fillMode: Image.PreserveAspectFit
-
-                    Button {
-                        id: buttonweb
-                        x: 402
-                        y: 202
-                        width: 254
-                        height: 41
-                        text: qsTr("https://kf2-ma.th3-z.xyz")
-                        font.weight: Font.Light
-                        focusPolicy: Qt.StrongFocus
-                        checked: false
-                        display: AbstractButton.TextBesideIcon
-                    }
                 }
+
+
             }
         }
     }
 }
+
+
+
+
