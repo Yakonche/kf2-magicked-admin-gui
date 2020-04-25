@@ -1,3 +1,3 @@
 {
-    "files": ["magicked_admin.py","magicked_admin.qml","frg.ts","home.png","requirements.txt","eng.ts","icon.ico","esg.ts","help.png","deg.ts","frg.po"]
+    "files": ["requirements.txt","locale/ui/eng.ts","magicked_admin_gui.py","ui/magicked_admin.qml","locale/ui/frg.po","ui/res/img/home.png","locale/ui/frg.ts","ui/res/img/help.png","icon.ico","locale/ui/deg.ts","locale/ui/esg.ts","magicked_admin_gui.py"]
 }

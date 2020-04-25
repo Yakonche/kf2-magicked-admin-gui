@@ -14,7 +14,7 @@ from PySide2.QtCore import QUrl, QStringListModel
 from PySide2.QtGui import QGuiApplication
 from PySide2.QtQml import QQmlApplicationEngine
 
-po = polib.pofile('frg.po')
+po = polib.pofile('locale/ui/frg.po')
 
 if __name__ == '__main__':
     os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("myModel", model)
-    engine.load(QUrl.fromLocalFile('magicked_admin.qml'))
+    engine.load(QUrl.fromLocalFile('ui/magicked_admin.qml'))
 
     if not engine.rootObjects():
         sys.exit(-1)

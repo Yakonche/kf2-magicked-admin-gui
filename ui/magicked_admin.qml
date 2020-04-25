@@ -111,7 +111,7 @@ ApplicationWindow {
                     y: 103
                     width: 706
                     height: 229
-                    source: "home.png"
+                    source: "res/img/home.png"
                     fillMode: Image.PreserveAspectFit
 
                     MouseArea {
