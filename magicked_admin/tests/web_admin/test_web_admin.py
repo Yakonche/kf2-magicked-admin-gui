@@ -3,9 +3,9 @@ from unittest import mock
 from requests import Session
 from tests.web_admin.mock_session import MockSession
 
-from web_admin.web_interface import WebInterface
-from web_admin.web_admin import WebAdmin
-from web_admin.chat import Chat
+from magicked_admin.web_admin.web_interface import WebInterface
+from magicked_admin.web_admin.web_admin import WebAdmin
+from magicked_admin.web_admin.chat import Chat
 
 from settings import Settings
 

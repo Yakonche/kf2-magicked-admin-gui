@@ -3,10 +3,10 @@ from itertools import groupby
 
 from lxml import html
 
-from utils import warning
-from utils.net import get_country
-from utils.text import str_to_bool
-from web_admin.constants import *
+from magicked_admin.utils import warning
+from magicked_admin.utils.net import get_country
+from magicked_admin.utils.text import str_to_bool
+from magicked_admin.web_admin.constants import *
 
 _ = gettext.gettext
 

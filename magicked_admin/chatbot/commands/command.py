@@ -1,10 +1,10 @@
 import gettext
 from argparse import ArgumentError
 
-from chatbot.commands.argument_parser import ArgumentParser
-from utils import BANNER_URL, debug
-from utils.text import pad_output
-from web_admin.constants import *
+from magicked_admin.chatbot.commands.argument_parser import ArgumentParser
+from magicked_admin.utils import BANNER_URL, debug
+from magicked_admin.utils.text import pad_output
+from magicked_admin.web_admin.constants import *
 
 _ = gettext.gettext
 

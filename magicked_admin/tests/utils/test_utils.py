@@ -1,5 +1,5 @@
 import pytest
-from utils import (
+from magicked_admin.utils import (
     banner, warning, fatal, die, debug, info
 )
 

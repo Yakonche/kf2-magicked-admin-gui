@@ -6,8 +6,8 @@ from colorama import init
 from lxml import html
 from termcolor import colored
 
-from utils import DEBUG
-from web_admin.constants import *
+from magicked_admin.utils import DEBUG
+from magicked_admin.web_admin.constants import *
 
 init()
 

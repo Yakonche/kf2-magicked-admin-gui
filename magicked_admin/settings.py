@@ -3,8 +3,8 @@ import gettext
 import os
 import sys
 
-from utils import die, fatal, find_data_file, info, warning
-from utils.net import resolve_address
+from magicked_admin.utils import die, fatal, find_data_file, info, warning
+from magicked_admin.utils.net import resolve_address
 
 try:
     from getch import getch
