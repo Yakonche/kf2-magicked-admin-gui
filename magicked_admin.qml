@@ -11,9 +11,8 @@ import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
     id: applicationWindow
-    Material.theme: Material.Dark
-    Material.accent: Material.Red
-    Material.primary: Material.Dark
+    Material.theme: themeSwitch.checked ? Material.Light : Material.Dark
+    Material.accent: themeSwitch.checked ? Material.color(Material.Blue, Material.Shade600) : Material.color(Material.Red, Material.Shade600)
     width: 1280
     height: 720
     visible: true
@@ -352,14 +351,14 @@ ApplicationWindow {
 
         Item {
             id: optionstab
-            visible: false
+            visible: true
 
             Page {
                 id: page2
                 x: 0
                 y: 0
                 width: 1280
-                height: 721
+                height: 720
                 visible: true
 
                 Button {
@@ -373,11 +372,15 @@ ApplicationWindow {
                 }
 
                 Switch {
+                    id: themeSwitch
                     x: 26
                     y: 368
                     width: 262
                     height: 40
                     text: qsTr("Theme Black / White")
+                    anchors.verticalCenterOffset: 27
+                    anchors.horizontalCenterOffset: -483
+                    anchors.centerIn: parent
                 }
 
                 CheckBox {
@@ -417,10 +420,26 @@ ApplicationWindow {
                         visible: true
                         editable: false
                         model: ListModel {
-                            ListElement { text: "English" }
-                            ListElement { text: "French" }
-                            ListElement { text: "Spanish" }
-                            ListElement { text: "Deutch" }
+                            ListElement {
+                                text: "English"
+                                //label: "English"
+                                //onClicked: rootItem.selectLanguage("eng")
+                            }
+                            ListElement {
+                                text: "Français"
+                                //label: "Français"
+                                //onClicked: rootItem.selectLanguage("frg")
+                            }
+                            ListElement {
+                                text: "Española"
+                                //label: "Española"
+                                //onClicked: rootItem.selectLanguage("esg")
+                            }
+                            ListElement {
+                                text: "Deutsch"
+                                //label: "Deutsch"
+                                //onClicked: rootItem.selectLanguage("deg")
+                            }
                         }
                         onAccepted: {
                             if (find(editText) === -1)
@@ -447,18 +466,23 @@ ApplicationWindow {
                         model: ListModel {
                             ListElement {
                                 text: "English"
+                                //label: "English"
+                                //onClicked: rootItem.selectLanguage("enc")
                             }
-
                             ListElement {
-                                text: "French"
+                                text: "Français"
+                                //label: "Français"
+                                //onClicked: rootItem.selectLanguage("frc")
                             }
-
                             ListElement {
-                                text: "Spanish"
+                                text: "Española"
+                                //label: "Española"
+                                //onClicked: rootItem.selectLanguage("esc")
                             }
-
                             ListElement {
-                                text: "Deutch"
+                                text: "Deutsch"
+                                //label: "Deutsch"
+                                //onClicked: rootItem.selectLanguage("dec")
                             }
                         }
                     }
@@ -467,7 +491,7 @@ ApplicationWindow {
         }
         Item {
             id: helptab
-            visible: true
+            visible: false
             Page {
                 id: page3
                 x: 0
@@ -478,13 +502,13 @@ ApplicationWindow {
 
                 Text {
                     x: 368
-                    y: 28
+                    y: 56
                     width: 545
-                    height: 665
+                    height: 626
                     horizontalAlignment: Text.AlignHCenter
                     text: '<u><b>Utility of each tab</b></u><br /><br /><u><b>KF2 Magicked Admin :</b></u><br /><br />For launching th software KF2 Magicked Admin, for more informations about utility of KF2-MA,<br /> please click on the button at the top right.<br /><br /><u><b>Patches :</b></u><br /><br />Select the modifications who you want on your WebAdmin panel.<br /><br /><u><b>Console :</b></u><br /><br />All the information on all the servers currently launched on KF2-MA.<br /><br /><u><b>Ranking :</b></u><br /><br />Select the server from which you wish to obtain<br /> the ranking of the players and various other statistics.<br /><br /><u><b>Configure :</b></u><br /><br />Allows you to directly and quickly modify .conf, .motd, and other scripts<br /> like fastnav direcly from the software interface.<br /><br /><u><b>WebAdmin :</b></u><br /><br />Access directly at your WebAdmin panel.<br /><br /><u><b>Options :</b></u><br /><br />Select language and others parameters'
                     font.pointSize: 10
-                    color: "white"
+                    color: themeSwitch.checked ? "black" : "white"
                 }
 
                 Button {
@@ -499,8 +523,6 @@ ApplicationWindow {
                     checked: false
                     display: AbstractButton.TextBesideIcon
                 }
-
-
             }
         }
     }
