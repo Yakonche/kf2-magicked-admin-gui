@@ -8,3 +8,9 @@ __pycache__/
 .*.swo
 .idea/
 
+# Configs
+magicked_admin/conf/
+*.motd
+*.sqlite
+*.init
+*.conf
