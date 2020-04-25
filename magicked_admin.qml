@@ -26,36 +26,36 @@ ApplicationWindow {
         visible: true
         enabled: true
         TabButton {
-            text: "KF2 Magicked Admin"
+            text: qsTr("KF2 Magicked Admin")
             visible: true
             checked: false
         }
         TabButton {
-            text: 'Patches'
+            text: qsTr('Patchs')
             checked: false
         }
         TabButton {
-            text: 'Console'
+            text: qsTr('Console')
             checked: false
         }
         TabButton {
-            text: 'Ranking'
+            text: qsTr('Ranking')
             checked: false
         }
         TabButton {
-            text: 'Configure'
+            text: qsTr('Configure')
             checked: false
         }
         TabButton {
-            text: 'WebAdmin'
+            text: qsTr('WebAdmin')
             checked: false
         }
         TabButton {
-            text: 'Options'
+            text: qsTr('Options')
             checked: false
         }
         TabButton {
-            text: 'Help'
+            text: qsTr('Help')
             checked: false
         }
     }
@@ -327,21 +327,29 @@ ApplicationWindow {
                 font.pixelSize: 12
             }
         }
-        Item {
+        Item 
+        {
             id: webadmintab
             visible: false
-            ScrollView {
+            ScrollView 
+            {
                 width: 1280
                 height: 720
-                WebEngineView {
+                visible: true
+                WebEngineView 
+                {
                     id: webview
                     url: "http://127.0.0.1:8081/ServerAdmin/current/info"
                     anchors.fill: parent
-                    onNavigationRequested: {
+                    onNavigationRequested: 
+                    {
                         var schemaRE = /^\w+:/;
-                        if (schemaRE.test(request.url)) {
+                        if (schemaRE.test(request.url)) 
+                        {
                             request.action = WebView.AcceptRequest;
-                        } else {
+                        }
+                        else 
+                        {
                             request.action = WebView.IgnoreRequest;
                         }
                     }
@@ -421,22 +429,22 @@ ApplicationWindow {
                         editable: false
                         model: ListModel {
                             ListElement {
-                                text: "English"
+                                text: qsTr("English")
                                 //label: "English"
                                 //onClicked: rootItem.selectLanguage("eng")
                             }
                             ListElement {
-                                text: "Français"
+                                text: qsTr("Français")
                                 //label: "Français"
                                 //onClicked: rootItem.selectLanguage("frg")
                             }
                             ListElement {
-                                text: "Española"
+                                text: qsTr("Española")
                                 //label: "Española"
-                                //onClicked: rootItem.selectLanguage("esg")
+                                //onClicked: rootItem.selectLanguage("spg")
                             }
                             ListElement {
-                                text: "Deutsch"
+                                text: qsTr("Deutsch")
                                 //label: "Deutsch"
                                 //onClicked: rootItem.selectLanguage("deg")
                             }
@@ -465,22 +473,22 @@ ApplicationWindow {
                         visible: true
                         model: ListModel {
                             ListElement {
-                                text: "English"
+                                text: qsTr("English")
                                 //label: "English"
                                 //onClicked: rootItem.selectLanguage("enc")
                             }
                             ListElement {
-                                text: "Français"
+                                text: qsTr("Français")
                                 //label: "Français"
                                 //onClicked: rootItem.selectLanguage("frc")
                             }
                             ListElement {
-                                text: "Española"
+                                text: qsTr("Española")
                                 //label: "Española"
                                 //onClicked: rootItem.selectLanguage("esc")
                             }
                             ListElement {
-                                text: "Deutsch"
+                                text: qsTr("Deutsch")
                                 //label: "Deutsch"
                                 //onClicked: rootItem.selectLanguage("dec")
                             }
@@ -506,7 +514,7 @@ ApplicationWindow {
                     width: 545
                     height: 626
                     horizontalAlignment: Text.AlignHCenter
-                    text: '<u><b>Utility of each tab</b></u><br /><br /><u><b>KF2 Magicked Admin :</b></u><br /><br />For launching th software KF2 Magicked Admin, for more informations about utility of KF2-MA,<br /> please click on the button at the top right.<br /><br /><u><b>Patches :</b></u><br /><br />Select the modifications who you want on your WebAdmin panel.<br /><br /><u><b>Console :</b></u><br /><br />All the information on all the servers currently launched on KF2-MA.<br /><br /><u><b>Ranking :</b></u><br /><br />Select the server from which you wish to obtain<br /> the ranking of the players and various other statistics.<br /><br /><u><b>Configure :</b></u><br /><br />Allows you to directly and quickly modify .conf, .motd, and other scripts<br /> like fastnav direcly from the software interface.<br /><br /><u><b>WebAdmin :</b></u><br /><br />Access directly at your WebAdmin panel.<br /><br /><u><b>Options :</b></u><br /><br />Select language and others parameters'
+                    text: qsTr('<u><b>Utility of each tab</b></u><br /><br /><u><b>KF2 Magicked Admin :</b></u><br /><br />For launching th software KF2 Magicked Admin, for more informations about utility of KF2-MA,<br /> please click on the button at the top right.<br /><br /><u><b>Patches :</b></u><br /><br />Select the modifications who you want on your WebAdmin panel.<br /><br /><u><b>Console :</b></u><br /><br />All the information on all the servers currently launched on KF2-MA.<br /><br /><u><b>Ranking :</b></u><br /><br />Select the server from which you wish to obtain<br /> the ranking of the players and various other statistics.<br /><br /><u><b>Configure :</b></u><br /><br />Allows you to directly and quickly modify .conf, .motd, and other scripts<br /> like fastnav direcly from the software interface.<br /><br /><u><b>WebAdmin :</b></u><br /><br />Access directly at your WebAdmin panel.<br /><br /><u><b>Options :</b></u><br /><br />Select language and others parameters')
                     font.pointSize: 10
                     color: themeSwitch.checked ? "black" : "white"
                 }
