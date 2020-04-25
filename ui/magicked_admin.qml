@@ -75,22 +75,20 @@ ApplicationWindow {
                 visible: true
 
                 Button {
-                    id: buttonlaunch
+                    id: testChat
                     signal clicked()
-                    objectName: "LaunchKF2MA"
+                    // objectName: "testChat"
                     x: 585
                     y: 405
                     width: 112
                     height: 48
-                    text: qsTr("Launch KF2-MA")
+                    text: qsTr("Test chat")
                     anchors.rightMargin: 569
                     anchors.bottomMargin: 270
                     anchors.leftMargin: 569
                     anchors.topMargin: 397
                     anchors.fill: parent
-                    onClicked: {
-                        parent.clicked()
-                    }
+                    onClicked: backend.chat()
 
                 }
 

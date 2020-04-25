@@ -72,6 +72,9 @@ class MagickedAdmin:
             CONFIG_PATH,
             skip_setup=args.skip_setup
         )
+        
+        self.servers = []
+        self.chats = []
 
     def reconfigure(self):
         self.settings = Settings(
@@ -90,12 +93,15 @@ class MagickedAdmin:
         web_interface = WebInterface(address, username, password, name)
         chat = Chat(web_interface)
         chat.start()
+        
+        self.chats.append(chat)
 
         web_admin = WebAdmin(web_interface, chat)
         database = ServerDatabase(name)
         game = Game(GameMap(), GAME_TYPE_UNKNOWN)
 
         server = Server(web_admin, database, game, name)
+        self.servers.append(server)
 
         if game_password:
             server.game_password = game_password
@@ -178,11 +184,11 @@ class MagickedAdmin:
 
         info(_("Initialisation complete!\n"))
 
-        if not args.skip_setup:
+        """if not args.skip_setup:
             while True:
                 command = input()
                 for server in servers:
-                    server.web_admin.chat.submit_message(command)
+                    server.web_admin.chat.submit_message(command)"""
 
     def terminate(self, signal, frame):
         if self.sigint_count > 1:
