@@ -1,22 +1,46 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Imagine 2.3
+// import QtQuick.Controls.Imagine 2.12
+import QtQuick.Controls.Universal 2.12
+import Qt.labs.settings 1.0
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.14
+import QtQuick.Dialogs 1.2
 import QtWebEngine 1.10
-import QtWebSockets 1.1
+// import QtWebSockets 1.1
 import QtWebView 1.14
-import QtWebEngine.Controls1Delegates 1.0
+// import QtWebEngine.Controls1Delegates 1.0
 
 ApplicationWindow {
     id: applicationWindow
-    Material.theme: themeSwitch.checked ? Material.Light : Material.Dark
-    Material.accent: themeSwitch.checked ? Material.color(Material.Blue, Material.Shade600) : Material.color(Material.Red, Material.Shade600)
+    // Material.theme: slider.position ? Material.Light : Material.Dark
+    // Material.accent: themeSwitchMaterial.checked ? Material.color(Material.Blue, Material.Shade600) : Material.color(Material.Red, Material.Shade600)
+    // Universal.theme: themeSwitchUniversal.checked ? Universal.Light : Universal.Dark
+    // Universal.accent: themeSwitchUniversal.checked ? Universal.color(Universal.Blue, Universal.Shade600) : Universal.color(Universal.Red, Universal.Shade600)
     width: 1280
     height: 720
     visible: true
     title: 'KF2 Magicked Admin 0.1.6'
+    
+    Settings {
+        id: appSettings
+
+        property string theme: "Dark"
+        // property string background: Material.background
+        // property string primary: Material.Purple
+        property string accent: Material.color(Material.Red, Material.Shade600)
+        property string style: "Material"
+        property string menuPaneColor: "#171717"
+    }
+
+    ButtonGroup {
+        id: styleBG
+    }
+    
+    ButtonGroup {
+        id: modeBG
+    }
 
     header: TabBar {
         id: bar
@@ -39,7 +63,7 @@ ApplicationWindow {
             checked: false
         }
         TabButton {
-            text: qsTr('Ranking')
+            text: qsTr('Players')
             checked: false
         }
         TabButton {
@@ -60,6 +84,7 @@ ApplicationWindow {
         }
     }
     StackLayout {
+        visible: true
         anchors.top: parent.top
         anchors.topMargin: 0
         currentIndex: bar.currentIndex
@@ -309,7 +334,7 @@ ApplicationWindow {
             id: consoletab
         }
         Item {
-            id: rankingtab
+            id: playerstab
         }
         Item {
             id: configuretab
@@ -358,7 +383,7 @@ ApplicationWindow {
         Item {
             id: optionstab
             visible: true
-
+            
             Page {
                 id: page2
                 x: 0
@@ -377,8 +402,8 @@ ApplicationWindow {
                     visible: true
                 }
 
-                Switch {
-                    id: themeSwitch
+                /* Switch {
+                    id: themeSwitchMaterial
                     x: 26
                     y: 368
                     width: 262
@@ -387,7 +412,7 @@ ApplicationWindow {
                     anchors.verticalCenterOffset: 27
                     anchors.horizontalCenterOffset: -483
                     anchors.centerIn: parent
-                }
+                } */
 
                 CheckBox {
                     id: checkBoxautolaunch
@@ -403,9 +428,9 @@ ApplicationWindow {
                     id: buttonresetstat
                     x: 26
                     y: 230
-                    width: 165
+                    width: 207
                     height: 40
-                    text: qsTr("Reset Raking / Stats")
+                    text: qsTr("Reset Ranking / Stats")
                     visible: true
                 }
 
@@ -493,6 +518,52 @@ ApplicationWindow {
                         }
                     }
                 }
+
+                RadioButton {
+                    x: 26
+                    y: 389
+                    checked: appSettings.style === "Material"
+                    text: "Material"
+                    ButtonGroup.group: styleBG
+                    onClicked: {
+                        appSettings.style = "Material"
+                    }
+                }
+                RadioButton {
+                    x: 26
+                    y: 435
+                    checked: appSettings.style === "Universal"
+                    text: "Universal"
+                    ButtonGroup.group: styleBG
+                    onClicked: {
+                        appSettings.style = "Universal"
+                    }
+                }
+                
+                RadioButton {
+                    x: 26
+                    y: 501
+                    checked: appSettings.theme === "Light"
+                    text: "Light"
+                    ButtonGroup.group: modeBG
+                    onClicked: {
+                        appSettings.theme = "Light"
+                        appSettings.accent = "Material.color(Material.Blue, Material.Shade600)"
+                        appSettings.menuPaneColor = "#eeeeee"
+                    }
+                }
+                RadioButton {
+                    x: 26
+                    y: 547
+                    checked: appSettings.theme === "Dark"
+                    text: "Dark"
+                    ButtonGroup.group: modeBG
+                    onClicked: {
+                        appSettings.theme = "Dark"
+                        appSettings.accent = "Material.color(Material.Red, Material.Shade600)"
+                        appSettings.menuPaneColor = "#171717"
+                    }
+                }
             }
         }
         Item {
@@ -512,9 +583,9 @@ ApplicationWindow {
                     width: 545
                     height: 626
                     horizontalAlignment: Text.AlignHCenter
-                    text: qsTr('<u><b>Utility of each tab</b></u><br /><br /><u><b>KF2 Magicked Admin :</b></u><br /><br />For launching th software KF2 Magicked Admin, for more informations about utility of KF2-MA,<br /> please click on the button at the top right.<br /><br /><u><b>Patches :</b></u><br /><br />Select the modifications who you want on your WebAdmin panel.<br /><br /><u><b>Console :</b></u><br /><br />All the information on all the servers currently launched on KF2-MA.<br /><br /><u><b>Ranking :</b></u><br /><br />Select the server from which you wish to obtain<br /> the ranking of the players and various other statistics.<br /><br /><u><b>Configure :</b></u><br /><br />Allows you to directly and quickly modify .conf, .motd, and other scripts<br /> like fastnav direcly from the software interface.<br /><br /><u><b>WebAdmin :</b></u><br /><br />Access directly at your WebAdmin panel.<br /><br /><u><b>Options :</b></u><br /><br />Select language and others parameters')
+                    text: qsTr('<u><b>Utility of each tab</b></u><br /><br /><u><b>KF2 Magicked Admin :</b></u><br /><br />For launching th software KF2 Magicked Admin, for more informations about utility of KF2-MA,<br /> please click on the button at the top right.<br /><br /><u><b>Patchs :</b></u><br /><br />Select the modifications who you want on your WebAdmin panel.<br /><br /><u><b>Console :</b></u><br /><br />All the information on all the servers currently launched on KF2-MA.<br /><br /><u><b>Players :</b></u><br /><br />Select the server from which you wish to obtain<br /> the ranking of the players and various other statistics.<br /><br /><u><b>Configure :</b></u><br /><br />Allows you to directly and quickly modify .conf, .motd, and other scripts<br /> like fastnav direcly from the software interface.<br /><br /><u><b>WebAdmin :</b></u><br /><br />Access directly at your WebAdmin panel.<br /><br /><u><b>Options :</b></u><br /><br />Select language or theme and others parameters')
                     font.pointSize: 10
-                    color: themeSwitch.checked ? "black" : "white"
+                    color: themeSwitchMaterial.checked ? "black" : "white"
                 }
 
                 Button {

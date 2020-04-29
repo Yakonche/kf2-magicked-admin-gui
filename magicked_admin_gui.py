@@ -16,44 +16,45 @@ from PySide2.QtWidgets import (
 )
 
 
-po = polib.pofile('locale/ui/frg.po')
+# po = polib.pofile('locale/ui/frg.po')
 
 
-class TestSignals:
-    magicked_admin = MagickedAdmin()
-    sig_chat = Signal(str)
+# class TestSignals:
+ #   magicked_admin = MagickedAdmin()
+  #  sig_chat = Signal(str)
 
-    def __init__(self):
-        self.magicked_admin.run()
+   # def __init__(self):
+     #   self.magicked_admin.run()
 
-    @Slot()
-    def chat_slot(self, str):
-        print("Testing chat")
-        for c in self.magicked_admin.chats:
-            c.submit_message(str)
+    # @Slot()
+    # def chat_slot(self, str):
+     #   print("Testing chat")
+      #  for c in self.magicked_admin.chats:
+       #     c.submit_message(str)
 
-    def chat(self):
-        print("test")
-        self.sig_chat.emit("test message")
+    # def chat(self):
+     #   print("test")
+      #  self.sig_chat.emit("test message")
 
 
 if __name__ == '__main__':
-    os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
+    # os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
+    sys.argv += ['--style', 'material']
 
     app = QApplication(sys.argv)
     model = QStringListModel()
     model.setStringList(["hi", "ho"])
 
-    iface = TestSignals()
+    # iface = TestSignals()
 
     engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("backend", iface)
+    engine.rootContext().setContextProperty("myModel", model)
     engine.load(QUrl.fromLocalFile('ui/magicked_admin.qml'))
     # print(engine.rootObjects())
     # iface.sig_chat.connect(engine.rootObjects().)
 
-    magicked_admin = MagickedAdmin()
-    magicked_admin.run()
+    # magicked_admin = MagickedAdmin()
+    # magicked_admin.run()
 
     if not engine.rootObjects():
         sys.exit(-1)
