@@ -14,6 +14,8 @@ from PySide2.QtWidgets import (
     QLineEdit, QPushButton, QApplication, QVBoxLayout, QDialog
 )
 
+from PySide2.QtWebEngine import QtWebEngine
+
 
 # class TestSignals:
  #   magicked_admin = MagickedAdmin()
@@ -34,9 +36,13 @@ from PySide2.QtWidgets import (
 
 
 if __name__ == '__main__':
+    QtWebEngine.initialize()
     os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
 
     app = QApplication(sys.argv)
+    app.setOrganizationDomain("N/a")
+    app.setOrganizationName("N/a")
+
     model = QStringListModel()
     model.setStringList(["hi", "ho"])
 

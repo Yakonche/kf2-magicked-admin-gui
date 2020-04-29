@@ -15,18 +15,6 @@ Item {
             id: webEngineViewWebAdmin
             url: "http://kf2.th3-z.xyz/"
             anchors.fill: parent
-            onNavigationRequested:
-            {
-                var schemaRE = /^\w+:/;
-                if (schemaRE.test(request.url))
-                {
-                    request.action = WebView.AcceptRequest;
-                }
-                else
-                {
-                    request.action = WebView.IgnoreRequest;
-                }
-            }
         }
     }
 }
