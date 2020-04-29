@@ -7,33 +7,10 @@ Released under the terms of the MIT license
 import sys
 import os
 
-from magicked_admin.magicked_admin import MagickedAdmin
-from PySide2.QtCore import QUrl, QStringListModel, Signal, Slot
+from PySide2.QtCore import QUrl, QStringListModel
 from PySide2.QtQml import QQmlApplicationEngine
-from PySide2.QtWidgets import (
-    QLineEdit, QPushButton, QApplication, QVBoxLayout, QDialog
-)
-
 from PySide2.QtWebEngine import QtWebEngine
-
-
-# class TestSignals:
- #   magicked_admin = MagickedAdmin()
-  #  sig_chat = Signal(str)
-
-   # def __init__(self):
-     #   self.magicked_admin.run()
-
-    # @Slot()
-    # def chat_slot(self, str):
-     #   print("Testing chat")
-      #  for c in self.magicked_admin.chats:
-       #     c.submit_message(str)
-
-    # def chat(self):
-     #   print("test")
-      #  self.sig_chat.emit("test message")
-
+from PySide2.QtWidgets import QApplication
 
 if __name__ == '__main__':
     QtWebEngine.initialize()
@@ -44,17 +21,11 @@ if __name__ == '__main__':
     app.setOrganizationName("N/a")
 
     model = QStringListModel()
-    model.setStringList(["hi", "ho"])
-
-    # iface = TestSignals()
+    model.setStringList([])
 
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("myModel", model)
     engine.load(QUrl.fromLocalFile('ui/MagickedAdmin.qml'))
-    # iface.sig_chat.connect(engine.rootObjects().)
-
-    # magicked_admin = MagickedAdmin()
-    # magicked_admin.run()
 
     if not engine.rootObjects():
         sys.exit(-1)
