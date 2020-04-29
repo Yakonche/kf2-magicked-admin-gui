@@ -13,4 +13,3 @@ pytest-cov
 patch==1.*
 lupa
 getch
-polib

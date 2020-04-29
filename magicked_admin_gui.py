@@ -6,7 +6,6 @@ Released under the terms of the MIT license
 
 import sys
 import os
-import polib
 
 from magicked_admin.magicked_admin import MagickedAdmin
 from PySide2.QtCore import QUrl, QStringListModel, Signal, Slot
@@ -14,9 +13,6 @@ from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtWidgets import (
     QLineEdit, QPushButton, QApplication, QVBoxLayout, QDialog
 )
-
-
-# po = polib.pofile('locale/ui/frg.po')
 
 
 # class TestSignals:
@@ -49,7 +45,6 @@ if __name__ == '__main__':
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("myModel", model)
     engine.load(QUrl.fromLocalFile('ui/MagickedAdmin.qml'))
-    # print(engine.rootObjects())
     # iface.sig_chat.connect(engine.rootObjects().)
 
     # magicked_admin = MagickedAdmin()
