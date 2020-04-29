@@ -38,8 +38,7 @@ from PySide2.QtWidgets import (
 
 
 if __name__ == '__main__':
-    # os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
-    sys.argv += ['--style', 'material']
+    os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
 
     app = QApplication(sys.argv)
     model = QStringListModel()
@@ -49,7 +48,7 @@ if __name__ == '__main__':
 
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("myModel", model)
-    engine.load(QUrl.fromLocalFile('ui/magicked_admin.qml'))
+    engine.load(QUrl.fromLocalFile('ui/MagickedAdmin.qml'))
     # print(engine.rootObjects())
     # iface.sig_chat.connect(engine.rootObjects().)
 
