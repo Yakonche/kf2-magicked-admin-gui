@@ -7,24 +7,31 @@ Released under the terms of the MIT license
 import sys
 import os
 
-from PySide2.QtCore import QUrl, QStringListModel
+from PySide2.QtCore import QUrl
 from PySide2.QtQml import QQmlApplicationEngine
 from PySide2.QtWebEngine import QtWebEngine
 from PySide2.QtWidgets import QApplication
 
+
+class TestContext:
+    def test_function():
+        print("Called testContext.testFunction()")
+
+
 if __name__ == '__main__':
-    QtWebEngine.initialize()
     os.environ["QT_QUICK_CONTROLS_STYLE"] = "Material"
+
+    QtWebEngine.initialize()
 
     app = QApplication(sys.argv)
     app.setOrganizationDomain("N/a")
     app.setOrganizationName("N/a")
 
-    model = QStringListModel()
-    model.setStringList([])
-
     engine = QQmlApplicationEngine()
-    engine.rootContext().setContextProperty("myModel", model)
+
+    test_context = TestContext()
+    engine.rootContext().setContextProperty("test_context", test_context)
+
     engine.load(QUrl.fromLocalFile('ui/MagickedAdmin.qml'))
 
     if not engine.rootObjects():

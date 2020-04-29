@@ -14,7 +14,7 @@ Item {
 
         Button {
             id: testChat
-            signal clicked()
+            //signal clicked()
             // objectName: "testChat"
             x: 585
             y: 405
@@ -26,8 +26,7 @@ Item {
             anchors.leftMargin: 569
             anchors.topMargin: 397
             anchors.fill: parent
-            onClicked: backend.chat()
-
+            onClicked: test_context.test_function()
         }
 
         Button {
