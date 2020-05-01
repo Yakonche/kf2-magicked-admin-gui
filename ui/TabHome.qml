@@ -3,13 +3,15 @@ import QtQuick.Controls 2.12
 
 Item {
     id: tabHome
-    visible: false
+    width: 1600
+    height: 900
+    visible: true
     Page {
         id: page
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 1600
+        height: 900
         visible: true
 
         Button {
@@ -21,10 +23,11 @@ Item {
             width: 112
             height: 48
             text: qsTr("Test chat")
-            anchors.rightMargin: 569
-            anchors.bottomMargin: 270
-            anchors.leftMargin: 569
-            anchors.topMargin: 397
+            visible: true
+            anchors.rightMargin: 729
+            anchors.bottomMargin: 391
+            anchors.leftMargin: 729
+            anchors.topMargin: 456
             anchors.fill: parent
             onClicked: test_context.test_function()
         }
@@ -33,19 +36,21 @@ Item {
             id: buttonclose
             signal clicked()
             objectName: "CloseKF2MA"
-            x: 569
-            y: 472
+            x: 729
+            y: 536
             width: 142
             height: 53
             text: qsTr("Close KF2-MA")
+            visible: true
         }
 
         Image {
             id: imagehome
-            x: 287
-            y: 103
+            x: 447
+            y: 119
             width: 706
             height: 229
+            visible: true
             source: "res/img/home.png"
             fillMode: Image.PreserveAspectFit
 
@@ -55,6 +60,7 @@ Item {
                 y: 159
                 width: 355
                 height: 33
+                visible: true
             }
         }
     }

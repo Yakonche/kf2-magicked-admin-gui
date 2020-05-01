@@ -4,24 +4,24 @@ import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 import QtQuick.Layouts 1.3
 
-
 ApplicationWindow {
     id: applicationWindow
-    // Material.theme: slider.position ? Material.Light : Material.Dark
-    // Material.accent: themeSwitchMaterial.checked ? Material.color(Material.Blue, Material.Shade600) : Material.color(Material.Red, Material.Shade600)
-    // Universal.theme: themeSwitchUniversal.checked ? Universal.Light : Universal.Dark
-    // Universal.accent: themeSwitchUniversal.checked ? Universal.color(Universal.Blue, Universal.Shade600) : Universal.color(Universal.Red, Universal.Shade600)
-    width: 1280
-    height: 720
+    width: 1600
+    height: 900
     visible: true
     title: 'KF2 Magicked Admin 0.1.6'
     
+    Material.background: appSettings.background
+    Material.theme: appSettings.theme
+    Material.primary: appSettings.primary
+    Material.accent: appSettings.accent
+
     Settings {
         id: appSettings
 
         property string theme: "Dark"
-        // property string background: Material.background
-        // property string primary: Material.Purple
+        property string background: Material.background
+        property string primary: Material.Dark
         property string accent: Material.color(Material.Red, Material.Shade600)
         property string style: "Material"
         property string menuPaneColor: "#171717"
@@ -59,7 +59,7 @@ ApplicationWindow {
             checked: false
         }
         TabButton {
-            text: qsTr('Servers')
+            text: qsTr('Configure')
             checked: false
         }
         TabButton {
@@ -74,6 +74,10 @@ ApplicationWindow {
             text: qsTr('Help')
             checked: false
         }
+        TabButton {
+            text: qsTr('Server')
+            checked: false
+        }
     }
     StackLayout {
         visible: true
@@ -81,13 +85,14 @@ ApplicationWindow {
         anchors.topMargin: 0
         currentIndex: bar.currentIndex
 
-        TabHome {}
+        TabHome { visible: true}
         TabPatches {}
         TabConsole {}
         TabPlayers {}
-        TabServers {}
+        TabConfigure {}
         TabWebAdmin {}
         TabOptions {}
         TabHelp {}
+        TabServer {}
     }
 }

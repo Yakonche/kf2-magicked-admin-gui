@@ -4,12 +4,14 @@ import QtQuick.Controls 2.12
 Item {
     id: tabPatches
     visible: false
+    width: 1600
+    height: 900
     Page {
         id: page1
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 1600
+        height: 900
         visible: true
 
         Button {
