@@ -12,7 +12,7 @@ Item {
         y: 275
         width: 408
         height: 18
-        color: radioButtonLight.checked ? "black" : "white"
+        color: appSettings.theme == "Dark"? "white": "black"
         text: qsTr("Modify magicked_admin.conf, fastnav.inc, .motd and WebAdmin browser")
         font.pixelSize: 17
     }

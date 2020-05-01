@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
 
 Item {
     id: tabOptions
@@ -19,9 +20,10 @@ Item {
             id: checkBoxautolaunch
             x: 450
             y: 291
-            width: 262
+            width: 330
             height: 40
             text: qsTr("KF2-MA auto launch at the start")
+            font.pixelSize: 17
             visible: true
         }
 
@@ -32,90 +34,63 @@ Item {
             width: 207
             height: 40
             text: qsTr("Reset Ranking / Stats")
+            font.pixelSize: 17
             visible: true
         }
 
         GroupBox {
-            id: groupBoxgui
+            id: groupBoxGui
             x: 26
             y: 19
-            width: 139
+            width: 211
             height: 85
+            font.bold: true
+            font.pixelSize: 17
             title: qsTr("Language GUI")
 
             ComboBox {
-                id: comboboxgui
+                id: comboBoxGui
                 x: 4
                 y: 0
-                width: 107
+                width: 183
                 height: 40
+                font.bold: false
+                font.pixelSize: 17
                 visible: true
                 editable: false
                 model: ListModel {
-                    ListElement {
-                        text: qsTr("English")
-                        //label: "English"
-                        //onClicked: rootItem.selectLanguage("eng")
-                    }
-                    ListElement {
-                        text: qsTr("Français")
-                        //label: "Français"
-                        //onClicked: rootItem.selectLanguage("frg")
-                    }
-                    ListElement {
-                        text: qsTr("Española")
-                        //label: "Española"
-                        //onClicked: rootItem.selectLanguage("spg")
-                    }
-                    ListElement {
-                        text: qsTr("Deutsch")
-                        //label: "Deutsch"
-                        //onClicked: rootItem.selectLanguage("deg")
-                    }
-                }
-                onAccepted: {
-                    if (find(editText) === -1)
-                        model.append({text: editText})
+                    ListElement {text: qsTr("English")}
+                    ListElement {text: qsTr("Français")}
+                    ListElement {text: qsTr("Española")}
+                    ListElement {text: qsTr("Deutsch")}
                 }
             }
         }
 
         GroupBox {
-            id: groupBoxconsole
+            id: groupBoxConsole
             x: 26
             y: 125
-            width: 139
+            width: 211
             height: 85
+            font.bold: true
+            font.pixelSize: 17
             title: qsTr("Language Console")
             ComboBox {
-                id: comboboxconsole
+                id: comboBoxConsole
                 x: 4
                 y: 0
-                width: 107
+                width: 183
                 height: 40
+                font.bold: false
+                font.pixelSize: 17
                 editable: false
                 visible: true
                 model: ListModel {
-                    ListElement {
-                        text: qsTr("English")
-                        //label: "English"
-                        //onClicked: rootItem.selectLanguage("enc")
-                    }
-                    ListElement {
-                        text: qsTr("Français")
-                        //label: "Français"
-                        //onClicked: rootItem.selectLanguage("frc")
-                    }
-                    ListElement {
-                        text: qsTr("Española")
-                        //label: "Española"
-                        //onClicked: rootItem.selectLanguage("esc")
-                    }
-                    ListElement {
-                        text: qsTr("Deutsch")
-                        //label: "Deutsch"
-                        //onClicked: rootItem.selectLanguage("dec")
-                    }
+                    ListElement {text: qsTr("English")}
+                    ListElement {text: qsTr("Français")}
+                    ListElement {text: qsTr("Española")}
+                    ListElement {text: qsTr("Deutsch")}
                 }
             }
         }
@@ -126,6 +101,8 @@ Item {
             y: 231
             width: 405
             height: 209
+            font.bold: true
+            font.pixelSize: 17
             title: qsTr("Theme")
 
             GroupBox {
@@ -134,6 +111,7 @@ Item {
                 y: 0
                 width: 271
                 height: 160
+                font.pixelSize: 17
                 title: qsTr("Color of Accent")
 
                 Flow {
@@ -180,6 +158,8 @@ Item {
                 id: radioButtonDark
                 checked: appSettings.theme === "Dark"
                 text: "Dark"
+                font.bold: false
+                font.pixelSize: 17
                 ButtonGroup.group: modeBG
                 onClicked: {
                     appSettings.theme = "Dark"
@@ -194,6 +174,8 @@ Item {
                 id: radioButtonLight
                 checked: appSettings.theme === "Light"
                 text: "Light"
+                font.bold: false
+                font.pixelSize: 17
                 ButtonGroup.group: modeBG
                 onClicked: {
                     appSettings.theme = "Light"
@@ -205,10 +187,12 @@ Item {
 
         GroupBox {
             id: groupBox
-            x: 184
+            x: 255
             y: 19
             width: 596
             height: 191
+            font.bold: true
+            font.pixelSize: 17
             title: qsTr("Installation / Update of the server")
 
             Text {
@@ -217,9 +201,9 @@ Item {
                 y: 9
                 width: 149
                 height: 21
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Installation folder : ")
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
             }
 
             Button {
@@ -229,15 +213,17 @@ Item {
                 width: 146
                 height: 38
                 text: qsTr("Explore")
+                font.bold: false
+                font.pixelSize: 17
             }
 
             Text {
                 id: element1
                 x: 0
                 y: 43
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Validate files")
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
             }
 
             CheckBox {
@@ -247,6 +233,7 @@ Item {
                 width: 303
                 height: 33
                 text: qsTr("Remove all patchs")
+                font.pixelSize: 17
                 checkable: false
             }
 
@@ -254,9 +241,9 @@ Item {
                 id: element2
                 x: 0
                 y: 82
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Update to beta")
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
             }
 
             CheckBox {
@@ -266,6 +253,7 @@ Item {
                 width: 303
                 height: 32
                 text: qsTr("Activate for enable switch to beta")
+                font.pixelSize: 17
                 checked: false
             }
 
@@ -275,9 +263,10 @@ Item {
                 y: 10
                 width: 265
                 height: 21
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("C:\\KF2Server")
+                font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
             }
 
             Button {
@@ -287,6 +276,8 @@ Item {
                 width: 206
                 height: 38
                 text: qsTr("Install / Update server")
+                font.bold: false
+                font.pixelSize: 17
             }
 
             Button {
@@ -296,6 +287,8 @@ Item {
                 width: 167
                 height: 38
                 text: qsTr("Install SteamCMD")
+                font.bold: false
+                font.pixelSize: 17
             }
         }
     }

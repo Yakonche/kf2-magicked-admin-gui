@@ -35,7 +35,7 @@ Item {
                 y: 13
                 width: 386
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Display more than 1000 map preview of custom map in gamesummary")
                 font.pixelSize: 12
             }
@@ -53,7 +53,7 @@ Item {
                 y: 13
                 width: 217
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Show the Save button for saving notes")
                 font.pixelSize: 12
             }
@@ -71,7 +71,7 @@ Item {
                 y: 13
                 width: 237
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Addition of Wave and Difficulty in rules list")
                 font.pixelSize: 12
             }
@@ -89,7 +89,7 @@ Item {
                 y: 13
                 width: 263
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Generate a link to the steam profile of a player")
                 font.pixelSize: 12
             }
@@ -107,7 +107,7 @@ Item {
                 y: 13
                 width: 303
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("The update of gamesummary goes from 30 sec to 1 sec")
                 font.pixelSize: 12
             }
@@ -125,7 +125,7 @@ Item {
                 y: 13
                 width: 244
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Fast naviguation buttons to any other server")
                 font.pixelSize: 12
             }
@@ -143,7 +143,7 @@ Item {
                 y: 13
                 width: 303
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Allows to see level of players in Server Info and Players")
                 font.pixelSize: 12
             }
@@ -161,7 +161,7 @@ Item {
                 y: 13
                 width: 252
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Add Wave counterand Timer in Endless mode")
                 font.pixelSize: 12
             }
@@ -179,7 +179,7 @@ Item {
                 y: 13
                 width: 197
                 height: 27
-                color: "#ffffff"
+                color: appSettings.theme == "Dark"? "white": "black"
                 text: qsTr("Add Wave counter in Endless mode")
                 font.pixelSize: 12
             }

@@ -61,7 +61,7 @@ Item {
                 text: qsTr("Map")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -73,7 +73,7 @@ Item {
                 text: qsTr("Game Type")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -85,7 +85,7 @@ Item {
                 text: qsTr("Difficulty")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -97,7 +97,7 @@ Item {
                 text: qsTr("Length")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -109,7 +109,7 @@ Item {
                 text: qsTr("Max Players")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -121,7 +121,7 @@ Item {
                 text: qsTr("Server Name")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -133,7 +133,7 @@ Item {
                 text: qsTr("Server Password")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -144,7 +144,7 @@ Item {
                 height: 23
                 text: qsTr("WebAdmin (Enable/Password)")
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -166,7 +166,7 @@ Item {
                 text: qsTr("123")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -178,7 +178,7 @@ Item {
                 text: qsTr("123")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -190,7 +190,7 @@ Item {
                 text: qsTr("Killing Floor 2 Server")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             ComboBox {
@@ -280,7 +280,7 @@ Item {
                 y: -3
                 width: 426
                 height: 29
-                displayText: "KF-Default"
+                displayText: "KF-BioticsLab"
                 font.bold: true
                 font.pixelSize: 17
                 editable: false
@@ -309,9 +309,6 @@ Item {
                     }
                     ListElement {
                         text: qsTr("KF-ContainmentStation")
-                    }
-                    ListElement {
-                        text: qsTr("KF-Default")
                     }
                     ListElement {
                         text: qsTr("KF-DieSector")
@@ -394,6 +391,7 @@ Item {
                 text: qsTr("6")
                 font.bold: true
                 font.pixelSize: 17
+                color: appSettings.theme == "Dark"? "white": "black"
             }
         }
 
@@ -424,7 +422,7 @@ Item {
                 text: qsTr("URL Image Server")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -436,7 +434,7 @@ Item {
                 text: qsTr("Message Clan")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -448,7 +446,7 @@ Item {
                 text: qsTr("MOTD")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -460,7 +458,7 @@ Item {
                 text: qsTr("Web Link")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -472,7 +470,7 @@ Item {
                 text: qsTr("http://art.tripwirecdn.com/TestItemIcons/MOTDServer.png")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -484,7 +482,7 @@ Item {
                 text: qsTr("http://killingfloor2.com")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -496,7 +494,7 @@ Item {
                 text: qsTr("This is my clan")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -505,10 +503,10 @@ Item {
                 y: 317
                 width: 523
                 height: 78
-                text: qsTr("")
+                text: qsTr("This is the Message Of The Day")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
         }
 
@@ -531,7 +529,7 @@ Item {
                 text: qsTr("Map Voting")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -543,7 +541,7 @@ Item {
                 text: qsTr("60.0")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -567,7 +565,7 @@ Item {
                 text: qsTr("Map voting time")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -579,7 +577,7 @@ Item {
                 text: qsTr("Kick voting")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -604,7 +602,7 @@ Item {
                 text: qsTr("Kick percentage")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -616,7 +614,7 @@ Item {
                 text: qsTr("0.66")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -628,7 +626,7 @@ Item {
                 text: qsTr("Time between kick vote")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -640,7 +638,7 @@ Item {
                 text: qsTr("10.0")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -664,7 +662,7 @@ Item {
                 text: qsTr("Max IDLE time to be kicked")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -676,7 +674,7 @@ Item {
                 text: qsTr("0.0")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -723,7 +721,7 @@ Item {
                 text: qsTr("Public text chat")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -735,7 +733,7 @@ Item {
                 text: qsTr("Spectator chat")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -747,7 +745,7 @@ Item {
                 text: qsTr("VoIP")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -759,7 +757,7 @@ Item {
                 text: qsTr("Dead players can talk")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -782,7 +780,7 @@ Item {
                 text: qsTr("Chat logging")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -841,19 +839,19 @@ Item {
                 text: qsTr("Chat logging filename")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
                 id: textEdit11
                 x: 408
                 y: 298
-                width: 109
+                width: 187
                 height: 20
                 text: qsTr("Example")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -865,7 +863,7 @@ Item {
                 text: qsTr("Team collision")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -877,7 +875,7 @@ Item {
                 text: qsTr("Admin can pause")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -889,7 +887,7 @@ Item {
                 text: qsTr("Announce admin logging")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -901,7 +899,7 @@ Item {
                 text: qsTr("Ready up delay")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -913,7 +911,7 @@ Item {
                 text: qsTr("90")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -925,7 +923,7 @@ Item {
                 text: qsTr("Game start delay")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -937,7 +935,7 @@ Item {
                 text: qsTr("4")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -961,7 +959,7 @@ Item {
                 text: qsTr("Max spectators")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -973,7 +971,7 @@ Item {
                 text: qsTr("2")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             CheckBox {
@@ -997,7 +995,7 @@ Item {
                 text: qsTr("Map objectives")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -1009,7 +1007,7 @@ Item {
                 text: qsTr("Pick up items")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -1021,7 +1019,7 @@ Item {
                 text: qsTr("Friendly fire percentage")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -1033,7 +1031,7 @@ Item {
                 text: qsTr("0.0")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -1045,43 +1043,43 @@ Item {
                 text: qsTr("Web/Game/Query Ports")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
                 id: textEdit16
                 x: 209
                 y: 569
-                width: 57
+                width: 63
                 height: 20
                 text: qsTr("8080")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
                 id: textEdit17
                 x: 278
                 y: 569
-                width: 47
+                width: 69
                 height: 20
                 text: qsTr("7777")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
                 id: textEdit18
-                x: 338
+                x: 353
                 y: 569
-                width: 64
+                width: 242
                 height: 20
                 text: qsTr("27015")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             Text {
@@ -1093,7 +1091,7 @@ Item {
                 text: qsTr("Custom parameters")
                 horizontalAlignment: Text.AlignRight
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
 
             TextEdit {
@@ -1105,7 +1103,7 @@ Item {
                 text: qsTr("Example : ?Mutator=")
                 font.bold: true
                 font.pixelSize: 17
-                color: radioButtonLight.checked ? "black" : "white"
+                color: appSettings.theme == "Dark"? "white": "black"
             }
         }
 
@@ -1126,6 +1124,18 @@ Item {
             width: 217
             height: 40
             text: qsTr("Join Server")
+            font.pixelSize: 17
+        }
+
+        Button {
+            id: button2
+            x: 372
+            y: 13
+            width: 132
+            height: 29
+            text: qsTr("Add Profile")
+            checkable: false
+            checked: false
             font.pixelSize: 17
         }
     }

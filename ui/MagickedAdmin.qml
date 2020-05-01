@@ -78,6 +78,10 @@ ApplicationWindow {
             text: qsTr('Server')
             checked: false
         }
+        TabButton {
+            text: qsTr('Maps/Mods')
+            checked: false
+        }
     }
     StackLayout {
         visible: true
@@ -94,5 +98,6 @@ ApplicationWindow {
         TabOptions {}
         TabHelp {}
         TabServer {}
+        TabMapsMods {}
     }
 }

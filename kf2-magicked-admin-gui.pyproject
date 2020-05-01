@@ -1,3 +1,3 @@
 {
-    "files": ["ui/TabHelp.qml","magicked_admin_gui.py","icon.ico","locale/ui/eng.ts","ui/res/img/help.png","locale/ui/esg.ts","ui/res/img/home.png","locale/ui/frg.ts","ui/TabWebAdmin.qml","ui/TabHome.qml","ui/res/TabServer.qml","ui/MagickedAdmin.qml","ui/TabOptions.qml","ui/settings.qml","locale/ui/deg.ts","ui/TabPatches.qml","ui/TabConfigure.qml","locale/ui/frg.po","requirements.txt","ui/TabPlayers.qml","ui/TabConsole.qml","ui/TabServer.qml"]
+    "files": ["locale/ui/esg.ts","ui/res/img/home.png","icon.ico","requirements.txt","ui/TabHome.qml","ui/TabConfigure.qml","locale/ui/frg.ts","ui/TabOptions.qml","locale/ui/frg.po","ui/TabWebAdmin.qml","ui/TabHelp.qml","ui/TabPatches.qml","ui/res/img/help.png","ui/TabPlayers.qml","ui/TabConsole.qml","ui/res/TabServer.qml","magicked_admin_gui.py","locale/ui/deg.ts","ui/MagickedAdmin.qml","ui/TabServer.qml","locale/ui/eng.ts","ui/settings.qml","ui/TabMapsMods.qml"]
 }
