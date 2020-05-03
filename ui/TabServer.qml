@@ -21,7 +21,7 @@ Item {
             height: 26
             text: qsTr("Profile")
             font.pixelSize: 17
-            color: radioButtonLight.checked ? "black" : "white"
+            color: appSettings.theme == "Dark"? "white": "black"
         }
 
         ComboBox {
@@ -320,9 +320,6 @@ Item {
                         text: qsTr("KF-FarmHouse")
                     }
                     ListElement {
-                        text: qsTr("KF-HansRevenge")
-                    }
-                    ListElement {
                         text: qsTr("KF-HostileGrounds")
                     }
                     ListElement {
@@ -335,7 +332,7 @@ Item {
                         text: qsTr("KF-Lockdown")
                     }
                     ListElement {
-                        text: qsTr("KF-Manor")
+                        text: qsTr("KF-VolterManor")
                     }
                     ListElement {
                         text: qsTr("KF-MonsterBall")

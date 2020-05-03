@@ -20,7 +20,7 @@ Item {
             id: checkBoxautolaunch
             x: 450
             y: 291
-            width: 330
+            width: 401
             height: 40
             text: qsTr("KF2-MA auto launch at the start")
             font.pixelSize: 17
@@ -31,7 +31,7 @@ Item {
             id: buttonresetstat
             x: 450
             y: 245
-            width: 207
+            width: 283
             height: 40
             text: qsTr("Reset Ranking / Stats")
             font.pixelSize: 17
@@ -250,7 +250,7 @@ Item {
                 id: checkBox1
                 x: 117
                 y: 76
-                width: 303
+                width: 455
                 height: 32
                 text: qsTr("Activate for enable switch to beta")
                 font.pixelSize: 17
@@ -271,9 +271,9 @@ Item {
 
             Button {
                 id: button8
-                x: 366
+                x: 289
                 y: 114
-                width: 206
+                width: 283
                 height: 38
                 text: qsTr("Install / Update server")
                 font.bold: false
@@ -284,7 +284,7 @@ Item {
                 id: button9
                 x: 0
                 y: 114
-                width: 167
+                width: 226
                 height: 38
                 text: qsTr("Install SteamCMD")
                 font.bold: false
