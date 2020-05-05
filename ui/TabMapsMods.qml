@@ -34,6 +34,14 @@ Item {
             checkable: false
             visible: true
             font.pixelSize: 17
+            Loader {
+                id: pageLoader
+                y: 42
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: pageLoader.source = "Workshop.qml"
+              }
         }
         
         Button {
@@ -185,8 +193,8 @@ Item {
                 height: 765
                 currentIndex: tabBarMapMod.currentIndex
                 visible: true
-                anchors.top: parent.top
-                anchors.topMargin: 0
+                // anchors.top: parent.top
+                // anchors.topMargin: 0
 
                 GridView {
                     id: tabOne
@@ -195,6 +203,20 @@ Item {
                 GridView {
                     id: tabTwo
                     ScrollBar.vertical: ScrollBar {}
+                    model: ListOfficialMap {}
+                    GridLayout {
+                        id: tabOn
+                        columns: 3
+
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                        CellMap{}
+                    }
                 }
             }
         }

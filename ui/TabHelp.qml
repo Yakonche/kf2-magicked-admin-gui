@@ -41,11 +41,28 @@ Item {
         Button {
             id: button
             x: 1370
-            y: 80
+            y: 67
             width: 204
             height: 41
             text: qsTr("Github Project")
             autoExclusive: true
+        }
+
+        Button {
+            id: button1
+            x: 1370
+            y: 114
+            width: 204
+            height: 41
+            text: qsTr("Donation")
+            Loader {
+                id: pageLoader
+                y: 42
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: pageLoader.source = "Donation.qml"
+              }
         }
     }
 }
