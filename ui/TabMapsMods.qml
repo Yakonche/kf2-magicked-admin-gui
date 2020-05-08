@@ -1,6 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.3
+import "cell"
 
 Item {
     id: tabMapsMods
@@ -194,7 +195,7 @@ Item {
                 currentIndex: tabBarMapMod.currentIndex
                 visible: true
                 // anchors.top: parent.top
-                // anchors.topMargin: 0
+                anchors.topMargin: 0
 
                 GridView {
                     id: tabOne
@@ -202,20 +203,46 @@ Item {
                 }
                 GridView {
                     id: tabTwo
-                    ScrollBar.vertical: ScrollBar {}
-                    model: ListOfficialMap {}
+                    ScrollBar.vertical: ScrollBar {
+                        active: true;
+
+                        onActiveChanged: {
+                            if (!active)
+                                active = true;
+                        }
+                    }
                     GridLayout {
                         id: tabOn
                         columns: 3
 
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
-                        CellMap{}
+                        CellAirship{}
+                        CellAshwoodAsylum{}
+                        CellBiolapse{}
+                        CellBioticsLab{}
+                        CellCatacombs{}
+                        CellContainmentStation{}
+                        CellDieSector{}
+                        CellEvacuationPoint{}
+                        CellFarmhouse{}
+                        CellHostileGrounds{}
+                        CellInfernalRealm{}
+                        CellKrampusLair{}
+                        CellLockdown{}
+                        CellMonsterBall{}
+                        CellNightmare{}
+                        CellNuked{}
+                        CellOutpost{}
+                        CellPowerCoreHoldout{}
+                        CellPrison{}
+                        CellSanitarium{}
+                        CellSantasWorkshop{}
+                        CellShoppingSpree{}
+                        CellSpillay{}
+                        CellSteamFortress{}
+                        CellTheDescent{}
+                        CellTragicKingdom{}
+                        CellVolterManor{}
+                        CellZedLanding{}
                     }
                 }
             }

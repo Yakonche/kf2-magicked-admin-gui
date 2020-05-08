@@ -16,7 +16,7 @@ ColumnLayout{
             fillMode: Image.PreserveAspectCrop
             clip: true
             id: image
-            source: ListOfficialMap
+            source: "../res/KF-Sanitarium.jpg"
         }
     }
         RowLayout {
@@ -32,7 +32,7 @@ ColumnLayout{
                 id: textMap
                 x: 45
                 width: 465
-                text: ListOfficialMap
+                text: qsTr(KF-Sanitarium)
                 textFormat: Text.RichText
                 renderType: Text.QtRendering
                 font.pixelSize: 17
