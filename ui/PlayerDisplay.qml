@@ -31,6 +31,7 @@ Item {
                     width: 116
                     height: 116
                     source: ""
+
                     fillMode: Image.PreserveAspectFit
                 }
                 ColumnLayout {
