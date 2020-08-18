@@ -3,6 +3,7 @@ import sys
 import gettext
 import logging
 import logging.handlers
+from pathlib import Path
 from colorama import init
 from termcolor import colored
 
@@ -14,7 +15,7 @@ init()
 DEBUG = __debug__ and not hasattr(sys, 'frozen')
 
 VERSION = "0.1.6"
-BANNER_URL = "https://kf2-ma.th3-z.xyz"
+BANNER_URL = "https://th3-z.xyz/kf2-ma"
 
 
 def find_data_file(filename):
@@ -29,9 +30,19 @@ def find_data_file(filename):
 
 
 # TODO: logging module
+if not os.path.exists(find_data_file("conf/")):
+    os.mkdir(find_data_file("conf/"))
+if not os.path.exists(find_data_file("conf/scripts/")):
+    os.mkdir(find_data_file("conf/scripts/"))
+if not os.path.exists(find_data_file("conf/marquee")):
+    os.mkdir(find_data_file("conf/marquee"))
+if not os.path.isfile(find_data_file("conf/magicked_admin.log")):
+    Path(find_data_file("conf/magicked_admin.log")).touch()
+
 logger = logging.getLogger("kf2-magicked-admin")
 handler = logging.handlers.WatchedFileHandler(
-    os.environ.get("LOGFILE", find_data_file("conf/magicked_admin.log"))
+    os.environ.get("LOGFILE", find_data_file("conf/magicked_admin.log")),
+    encoding="utf-8"
 )
 formatter = logging.Formatter(
     "[%(asctime)s %(levelname)s] %(message)s",

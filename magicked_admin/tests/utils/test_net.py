@@ -1,6 +1,6 @@
 import pytest
 
-from magicked_admin.utils.net import (
+from utils.net import (
     get_country, phone_home, resolve_address
 )
 
@@ -15,7 +15,15 @@ def test_get_country():
 def test_resolve_address():
     tests = [
         {"address": "kf2.th3-z.xyz",
-         "expected": "https://kf2.th3-z.xyz"}
+         "expected": "https://kf2.th3-z.xyz"},
+        {"address": "https://kf2.th3-z.xyz",
+         "expected": "https://kf2.th3-z.xyz"},
+        {"address": "http://kf2.th3-z.xyz",
+         "expected": "https://kf2.th3-z.xyz"},
+        {"address": "kf2.th3-z.xyz:8090",
+         "expected": "http://kf2.th3-z.xyz:8090"},
+        {"address": "136.244.96.98:8090",
+         "expected": "http://136.244.96.98:8090"}
     ]
 
     for test in tests:

@@ -14,22 +14,22 @@ import locale
 from colorama import init
 
 # TODO: Improve package layouts
-from magicked_admin.chatbot.chatbot import Chatbot
-from magicked_admin.chatbot.command_scheduler import CommandScheduler
-from magicked_admin.chatbot.motd_updater import MotdUpdater
-from magicked_admin.chatbot.commands.command_map import CommandMap
-from magicked_admin.server.server import Server
-from magicked_admin.settings import Settings, CONFIG_PATH
-from magicked_admin.utils import banner, die, find_data_file, info, warning
-from magicked_admin.utils.net import phone_home
-from magicked_admin.server.game_tracker import GameTracker
-from magicked_admin.database.database import ServerDatabase
-from magicked_admin.server.game import Game, GameMap
-from magicked_admin.web_admin import WebAdmin
-from magicked_admin.web_admin.web_interface import WebInterface, AuthorizationException
-from magicked_admin.web_admin.chat import Chat
-from magicked_admin.web_admin.constants import *
-from magicked_admin.lua_bridge.lua_bridge import LuaBridge
+from chatbot.chatbot import Chatbot
+from chatbot.command_scheduler import CommandScheduler
+from chatbot.motd_updater import MotdUpdater
+from chatbot.commands.command_map import CommandMap
+from server.server import Server
+from settings import Settings, CONFIG_PATH
+from utils import banner, die, find_data_file, info, warning
+from utils.net import phone_home
+from server.game_tracker import GameTracker
+from database.database import ServerDatabase
+from server.game import Game, GameMap
+from web_admin import WebAdmin
+from web_admin.web_interface import WebInterface, AuthorizationException
+from web_admin.chat import Chat
+from web_admin.constants import *
+from lua_bridge.lua_bridge import LuaBridge
 
 gettext.bindtextdomain('magicked_admin', 'locale')
 gettext.textdomain('magicked_admin')
@@ -47,7 +47,6 @@ args = parser.parse_args()
 banner()
 
 REQUESTS_CA_BUNDLE_PATH = find_data_file("./certifi/cacert.pem")
-
 
 if hasattr(sys, "frozen"):
     import certifi.core
@@ -72,9 +71,6 @@ class MagickedAdmin:
             CONFIG_PATH,
             skip_setup=args.skip_setup
         )
-        
-        self.servers = []
-        self.chats = []
 
     def reconfigure(self):
         self.settings = Settings(
@@ -89,26 +85,24 @@ class MagickedAdmin:
         password = self.settings.setting(name, "password")
         game_password = self.settings.setting(name, "game_password")
         url_extras = self.settings.setting(name, "url_extras")
+        refresh_rate = float(self.settings.setting(name, "refresh_rate"))
 
         web_interface = WebInterface(address, username, password, name)
         chat = Chat(web_interface)
         chat.start()
-        
-        self.chats.append(chat)
 
         web_admin = WebAdmin(web_interface, chat)
         database = ServerDatabase(name)
         game = Game(GameMap(), GAME_TYPE_UNKNOWN)
 
         server = Server(web_admin, database, game, name)
-        self.servers.append(server)
 
         if game_password:
             server.game_password = game_password
         if url_extras:
             server.url_extras = url_extras
 
-        tracker = GameTracker(server)
+        tracker = GameTracker(server, refresh_rate)
         tracker.start()
 
         self.stop_list.append(server)
@@ -184,11 +178,11 @@ class MagickedAdmin:
 
         info(_("Initialisation complete!\n"))
 
-        """if not args.skip_setup:
+        if not args.skip_setup:
             while True:
                 command = input()
                 for server in servers:
-                    server.web_admin.chat.submit_message(command)"""
+                    server.web_admin.chat.submit_message(command)
 
     def terminate(self, signal, frame):
         if self.sigint_count > 1:

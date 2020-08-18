@@ -3,8 +3,8 @@ import gettext
 import os
 import sys
 
-from magicked_admin.utils import die, fatal, find_data_file, info, warning
-from magicked_admin.utils.net import resolve_address
+from utils import die, fatal, find_data_file, info, warning
+from utils.net import resolve_address
 
 try:
     from getch import getch
@@ -24,6 +24,10 @@ if getch_av:
         buf = ''
         while True:
             ch = getch()
+
+            if type(ch) is not str:
+                ch = ch.decode()
+
             if ch in ['\n', '\r', '\r\n', '\n\r']:
                 print('')
                 break
@@ -47,9 +51,10 @@ SETTINGS_DEFAULT = {
     # username = Admin
     # password = 123
     'game_password': '123',
+    'refresh_rate': '1'
 }
 
-SETTINGS_REQUIRED = ['address', 'username', 'password']
+SETTINGS_REQUIRED = ['address', 'username', 'password', 'refresh_rate']
 
 CONFIG_DIE_MESG = _("Please correct this manually  or delete '{}' to create "
                     "a clean config next run.").format(CONFIG_PATH_DISPLAY)
@@ -121,6 +126,45 @@ class Settings:
                 continue
             new_config.set(SETTINGS_DEFAULT['server_name'], setting,
                            SETTINGS_DEFAULT[setting])
+
+        langs = [
+            {
+                "name": "English",
+                "code": "en_GB"
+            },
+            {
+                "name": "Español",
+                "code": "es_ES"
+            },
+            {
+                "name": "Deutsche",
+                "code": "de_DE"
+            },
+            {
+                "name": "Français",
+                "code": "fr_FR"
+            }
+        ]
+        while True:
+            print()  # \n
+            for idx, lang in enumerate(langs):
+                print(
+                    "\t{}: {} ({})".format(idx + 1, lang['name'], lang['code'])
+                )
+            lang = input("\nSelect a language [default - 1]: ") or "1"
+
+            try:
+                lang_idx = int(lang) - 1
+                if len(langs) > lang_idx >= 0:
+                    new_config.set(
+                        'magicked_admin', 'language', langs[lang_idx]['code']
+                    )
+                    break
+                else:
+                    print("Invalid selection, try again\n")
+
+            except ValueError:
+                print("Please input a number, try again\n")
 
         while True:
             address = input(

@@ -203,17 +203,15 @@ Item {
                 }
                 GridView {
                     id: tabTwo
-                    ScrollBar.vertical: ScrollBar {
-                        active: true;
 
-                        onActiveChanged: {
-                            if (!active)
-                                active = true;
-                        }
-                    }
                     GridLayout {
                         id: tabOn
                         columns: 3
+
+                        ScrollBar.vertical: ScrollBar {
+                            policy: ScrollBar.AsNeeded
+                            snapMode: ScrollBar.NoSnap
+                        }
 
                         CellAirship{}
                         CellAshwoodAsylum{}

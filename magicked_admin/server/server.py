@@ -3,9 +3,9 @@ import sys
 
 from termcolor import colored
 
-from magicked_admin.server.player import Player
-from magicked_admin.utils import debug, warning, info
-from magicked_admin.web_admin.constants import *
+from server.player import Player
+from utils import debug, warning, info, DEBUG
+from web_admin.constants import *
 
 _ = gettext.gettext
 
@@ -21,6 +21,7 @@ class Server:
         self.game = game
         self.trader_time = False
         self.players = []
+        self.rejects = []
 
         # Initial game's record data is discarded because some may be missed
         self.record_games = True
@@ -29,8 +30,7 @@ class Server:
         return self.web_admin.supported_mode(self.game.game_type)
 
     def stop(self):
-        self.write_game_map()
-        self.write_all_players()
+        pass
 
     def get_player_by_username(self, username):
         matched_players = 0
@@ -75,14 +75,10 @@ class Server:
         self.web_admin.toggle_game_password()
 
     def write_all_players(self):
-        debug(_("Flushing players on {}").format(self.name))
         for player in self.players:
             self.database.save_player(player)
 
     def write_game_map(self):
-        debug(_("Writing game to database ({})").format(
-            self.game.game_map.name
-        ))
         self.database.save_game_map(self.game.game_map)
 
     def set_difficulty(self, difficulty):
@@ -155,7 +151,16 @@ class Server:
         self.web_admin.set_game_type(mode)
 
     def event_player_join(self, player):
-        identity = self.web_admin.get_player_identity(player.username)
+        if player.username not in self.rejects:
+            identity = self.web_admin.get_player_identity(player.username)
+        else:
+            return
+
+        # Reject unidentifiable players
+        if not identity['steam_id']:
+            debug("Rejected player: {}".format(player.username))
+            self.rejects.append(player.username)
+            return
 
         new_player = Player(player.username, player.perk)
         new_player.kills = player.kills
@@ -171,8 +176,16 @@ class Server:
         new_player.sessions += 1
 
         self.players.append(new_player)
-        message = _("Player {} joined {} from {}") \
-            .format(new_player.username, self.name, new_player.country)
+
+        if DEBUG:
+            message = _("Player {} ({}) joined {} from {}").format(
+                new_player.username, new_player.steam_id, self.name,
+                new_player.country
+            )
+        else:
+            message = _("Player {} joined {} from {}") \
+                .format(new_player.username, self.name, new_player.country)
+
         print(colored(
             message.encode("utf-8").decode(sys.stdout.encoding), 'cyan'
         ))
@@ -235,6 +248,8 @@ class Server:
         else:
             warning(_("Unknown game_type {}").format(self.game.game_type))
             self.game.game_map.plays_other += 1
+
+        self.rejects = []
 
         self.web_admin.chat.handle_message("internal_command", "!new_game",
                                            USER_TYPE_INTERNAL)

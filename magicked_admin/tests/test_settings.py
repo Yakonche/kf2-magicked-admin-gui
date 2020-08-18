@@ -1,7 +1,7 @@
 import pytest
 import configparser
 from settings import Settings, CONFIG_PATH
-from magicked_admin.utils import find_data_file
+from utils import find_data_file
 from os.path import exists
 from os import remove
 

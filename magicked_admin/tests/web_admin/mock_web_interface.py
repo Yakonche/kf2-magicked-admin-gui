@@ -5,16 +5,20 @@ from hashlib import sha1
 import requests
 from lxml import html
 
-from magicked_admin.utils import debug, die, info, warning
+from utils import debug, die, info, warning
 
 _ = gettext.gettext
 
 
 class WebInterface(object):
-    def __init__(self, address, username, password, server_name="unnamed"):
+    def __init__(
+            self, address, username, password,
+            refresh_rate, server_name="unnamed"
+    ):
         self.__address = address
         self.__username = username
         self.__password = password
+        self.__refresh_rate = refresh_rate
 
         self.server_name = server_name
         self.ma_installed = False
