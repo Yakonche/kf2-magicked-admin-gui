@@ -1,12 +1,56 @@
 from os import path
 import gettext
 
-import magicked_admin.server.game as game
+import server.game as game
 from .command import Command
-from magicked_admin.utils import find_data_file
-from magicked_admin.web_admin.constants import *
+from utils import find_data_file
+from web_admin.constants import *
 
 _ = gettext.gettext
+
+
+class CommandAlias(Command):
+    def __init__(self, server, chatbot):
+        Command.__init__(self, server, admin_only=True, requires_patch=False)
+
+        self.parser.add_argument(
+            "-op", "--op",
+            action="store_true"
+        )
+        self.parser.add_argument("name", nargs=1)
+        self.parser.add_argument("command", nargs="*")
+
+        self.help_text = _("Usage: !alias [--op] NAME -- COMMAND\n"
+                           "\t-o --op - Set to restrict alias to ops\n"
+                           "\tNAME - Name of alias \n"
+                           "\tCOMMAND - Some command \n"
+                           "Desc: Runs some Lua code")
+
+        self.chatbot = chatbot
+
+    def execute(self, username, args, user_flags):
+        args, err = self.parse_args(username, args, user_flags)
+        if err:
+            return err
+        if args.help:
+            return self.format_response(self.help_text, args)
+
+        if args.command:
+            command = " ".join(args.command)
+        else:
+            return self.format_response(
+                _("Missing argument, command"), args
+            )
+
+        if args.name:
+            name = args.name[0]
+        else:
+            return self.format_response(
+                _("Missing argument, name"), args
+            )
+
+        self.chatbot.add_alias(name, command, args.op)
+        return _("Added alias")
 
 
 class CommandLua(Command):
@@ -125,8 +169,6 @@ class CommandOp(Command):
             player.op = 1
             message = _("Oped {}").format(player.username)
 
-        self.server.write_all_players()
-
         return self.format_response(message, args)
 
 
@@ -160,8 +202,6 @@ class CommandDeop(Command):
         else:
             player.op = 0
             message = _("Deoped {}").format(player.username)
-
-        self.server.write_all_players()
 
         return self.format_response(message, args)
 
@@ -210,10 +250,7 @@ class CommandGameMap(Command):
         else:
             map_title = self.server.game.game_map.title
 
-        self.server.write_game_map()
-
         game_map = game.GameMap(map_title)
-        self.server.write_game_map()
         self.server.database.load_game_map(game_map)
 
         total_plays = (game_map.plays_survival
@@ -303,10 +340,8 @@ class CommandUpdateMotd(Command):
 
         self.motd_updater = motd_updater
 
-        self.parser.add_argument("score_type", nargs="?", type=str)
-        self.help_text = _("Usage: !update_motd TYPE\n"
-                           "\tTYPE - Score type, one of: kills, dosh, time\n"
-                           "Desc: Updates the MOTD scoreboard")
+        self.help_text = _("Usage: !update_motd\n"
+                           "Desc: Updates the MOTD from the template file")
 
     def execute(self, username, args, user_flags):
         args, err = self.parse_args(username, args, user_flags)
@@ -315,15 +350,7 @@ class CommandUpdateMotd(Command):
         if args.help:
             return self.format_response(self.help_text, args)
 
-        if not args.score_type:
-            return self.format_response(_("Missing argument: type"), args)
-
-        if args.score_type.lower() not in ['kill', 'kills', 'dosh', 'time']:
-            return self.format_response(
-                _("Unrecognised score type: {}").format(args.score_type), args
-            )
-
-        self.motd_updater.update(args.score_type)
+        self.motd_updater.update()
 
         return self.format_response(
             _("Updated the MOTD"), args

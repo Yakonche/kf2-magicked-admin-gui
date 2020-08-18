@@ -2,9 +2,9 @@ import lupa
 import requests
 from lupa import LuaRuntime
 
-from magicked_admin.web_admin.chat import ChatListener
-from magicked_admin.utils.lua import load_script
-from magicked_admin.utils import find_data_file, warning
+from web_admin.chat import ChatListener
+from utils.lua import load_script
+from utils import find_data_file, warning
 
 """
 API Specification:
