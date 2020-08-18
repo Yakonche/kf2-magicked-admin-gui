@@ -13,256 +13,175 @@ Item {
         height: 116
         color: "#ffffff"
 
-        GridLayout {
-            id: gridLayout
+        ColumnLayout {
+            id: columnLayout
             x: 0
             y: 0
             width: 834
             height: 116
 
-            ColumnLayout {
-                id: columnLayout
+            RowLayout {
+                id: rowLayout
                 x: 0
                 y: 0
-                width: 116
-                height: 116
-
                 Image {
-                    id: image
+                    id: imageAvatar
                     x: 0
                     y: 0
                     width: 116
                     height: 116
                     source: ""
+                    fillMode: Image.PreserveAspectFit
                 }
-            }
-            RowLayout {
-                id: rowLayout1
-                width: 584
-                height: 38
-                x: 134
-                y: 0
-
-                TextInput {
-                    id: textInputPseudo
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-            }
-            RowLayout {
-                id: rowLayout2
-                width: 584
-                height: 38
-                x: 134
-                y: 38
-                Rectangle {
-                    id: rectangle1
-                    width: 230
-                    height: 20
-                    color: "#4ef708"
-                    border.width: 3
-                    x: 0
-                    y: 0
-                }
-                TextInput {
-                    id: textInputHPnow
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementHP
-                    x: 396
-                    y: 310
-                    text: qsTr("/")
-                    font.pixelSize: 12
-                }
-                Text {
-                    id: elementHPmax
-                    x: 396
-                    y: 310
-                    text: qsTr("")
-                    font.pixelSize: 12
-                }
-                Text {
-                    id: elementHP2
-                    x: 396
-                    y: 310
-                    text: qsTr(" HP")
-                    font.pixelSize: 12
-                }
-                Text {
-                    id: elementSpace
-                    x: 396
-                    y: 310
-                    text: qsTr("   ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputPerk
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementSpace2
-                    x: 396
-                    y: 310
-                    text: qsTr(" ")
-                    font.pixelSize: 12
-                }
-                Text {
-                    id: elementLVL
-                    x: 396
-                    y: 310
-                    text: qsTr("LVL ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputLVL
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementSpace3
-                    x: 396
-                    y: 310
-                    text: qsTr("   ")
-                    font.pixelSize: 12
-                }
-                Text {
-                    id: elementTime
-                    x: 396
-                    y: 310
-                    text: qsTr("Time : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputTime
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-            }
-            RowLayout {
-                id: rowLayout
-                width: 584
-                height: 37
-                x: 134
-                y: 76
-                Text {
-                    id: elementKills
-                    x: 396
-                    y: 310
-                    text: qsTr("Kills : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputKills
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementDeaths
-                    x: 396
-                    y: 310
-                    text: qsTr(" Deaths : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputDeaths
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementDosh
-                    x: 396
-                    y: 310
-                    text: qsTr(" Đ : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputDosh
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementPing
-                    x: 396
-                    y: 310
-                    text: qsTr(" Ping : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputPing
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementIP
-                    x: 396
-                    y: 310
-                    text: qsTr(" IP : ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputIP
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-                Text {
-                    id: elementSpace4
-                    x: 396
-                    y: 310
-                    text: qsTr("   ")
-                    font.pixelSize: 12
-                }
-                TextInput {
-                    id: textInputCountry
-                    text: qsTr("")
-                    font.pixelSize: 12
-                    x: 0
-                    y: 0
-                }
-            }
-            ColumnLayout {
-                id: column
-                x: 700
-                y: 0
-                width: 134
-                height: 116
-
-                Button {
-                    id: button
-                    text: qsTr("Steam ID")
-                    width: 78
-                    x: 0
-                    y: 0
-                    height: 34
-                }
-                Button {
-                    id: button1
-                    text: qsTr("Stats")
-                    width: 78
-                    x: 0
-                    y: 35
+                ColumnLayout {
+                    id: columnLayout1
+                    RowLayout {
+                        id: rowLayout1
+                        smooth: false
+                        enabled: false
+                        TextInput {
+                            id: textInput
+                            text: qsTr("Yakonche")
+                            font.pixelSize: 12
+                        }
+                        Button {
+                            id: buttonSteamID
+                            text: qsTr("Steam Profile")
+                        }
+                    }
+                    RowLayout {
+                        id: rowLayout2
+                        HealthBar {}
+                        Text {
+                            id: elementHealthNow
+                            text: qsTr("125")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementHealthSeparate
+                            text: qsTr("/")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementHealthMax
+                            text: qsTr("125")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementHP
+                            text: qsTr(" HP     ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementPerk
+                            text: qsTr("Field Medic")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementLVL
+                            text: qsTr(" LVL ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementLVLNow
+                            text: qsTr("25")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementTime
+                            text: qsTr("   Time : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementTimeNow
+                            text: qsTr("99d 99h 59m 59s")
+                            font.pixelSize: 12
+                        }
+                        Button {
+                            id: buttonStats
+                            text: qsTr("Stats")
+                        }
+                    }
+                    RowLayout {
+                        id: rowLayout3
+                        Text {
+                            id: elementKills
+                            text: qsTr("Kills : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementKillsCount
+                            text: qsTr("2342")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementDeaths
+                            text: qsTr(" Deaths : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementDeathsCount
+                            text: qsTr("423")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementRatio
+                            text: qsTr(" Ratio : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementRatioCount
+                            text: qsTr("15,89")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementDosh
+                            text: qsTr(" Đ : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementDoshCount
+                            text: qsTr("2 568 746")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementPing
+                            text: qsTr(" Ping : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementPingCount
+                            text: qsTr("1024")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementIP
+                            text: qsTr(" IP : ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementIPCount
+                            text: qsTr("85.168.60.156")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementSpace
+                            text: qsTr("   ")
+                            font.pixelSize: 12
+                        }
+                        Text {
+                            id: elementCountry
+                            text: qsTr("France")
+                            font.pixelSize: 12
+                        }
+                        Image {
+                            id: image
+                            width: 50
+                            height: 25
+                            source: ""
+                            fillMode: Image.PreserveAspectFit
+                        }
+                    }
                 }
             }
         }
@@ -271,6 +190,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
 }
 ##^##*/

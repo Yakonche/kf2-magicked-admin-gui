@@ -84,11 +84,12 @@ ApplicationWindow {
         }
     }
     StackLayout {
+        x: 0
         visible: true
         anchors.top: parent.top
         anchors.topMargin: 0
         currentIndex: bar.currentIndex
-
+        
         TabHome { visible: true}
         TabPatches {}
         TabConsole {}

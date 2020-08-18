@@ -4,4 +4,6 @@ Item {
     id: tabPlayers
     width: 1600
     height: 900
+
+    PlayerDisplay {}
 }
