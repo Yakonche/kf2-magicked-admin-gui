@@ -213,34 +213,7 @@ Item {
                             snapMode: ScrollBar.NoSnap
                         }
 
-                        CellAirship{}
-                        CellAshwoodAsylum{}
-                        CellBiolapse{}
-                        CellBioticsLab{}
-                        CellCatacombs{}
-                        CellContainmentStation{}
-                        CellDieSector{}
-                        CellEvacuationPoint{}
-                        CellFarmhouse{}
-                        CellHostileGrounds{}
-                        CellInfernalRealm{}
-                        CellKrampusLair{}
-                        CellLockdown{}
-                        CellMonsterBall{}
-                        CellNightmare{}
-                        CellNuked{}
-                        CellOutpost{}
-                        CellPowerCoreHoldout{}
-                        CellPrison{}
-                        CellSanitarium{}
-                        CellSantasWorkshop{}
-                        CellShoppingSpree{}
-                        CellSpillay{}
-                        CellSteamFortress{}
-                        CellTheDescent{}
-                        CellTragicKingdom{}
-                        CellVolterManor{}
-                        CellZedLanding{}
+                        CellMap{}
                     }
                 }
             }

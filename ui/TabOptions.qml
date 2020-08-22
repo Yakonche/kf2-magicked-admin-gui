@@ -201,7 +201,7 @@ Item {
                 y: 9
                 width: 149
                 height: 21
-                color: appSettings.theme == "Dark"? "white": "black"
+                color: appSettings.theme == "Dark"? "White": "Black"
                 text: qsTr("Installation folder : ")
                 font.pixelSize: 17
             }
@@ -221,7 +221,7 @@ Item {
                 id: element1
                 x: 0
                 y: 43
-                color: appSettings.theme == "Dark"? "white": "black"
+                color: appSettings.theme == "Dark"? "White": "Black"
                 text: qsTr("Validate files")
                 font.pixelSize: 17
             }
@@ -241,7 +241,7 @@ Item {
                 id: element2
                 x: 0
                 y: 82
-                color: appSettings.theme == "Dark"? "white": "black"
+                color: appSettings.theme == "Dark"? "White": "Black"
                 text: qsTr("Update to beta")
                 font.pixelSize: 17
             }
@@ -263,7 +263,7 @@ Item {
                 y: 10
                 width: 265
                 height: 21
-                color: appSettings.theme == "Dark"? "white": "black"
+                color: appSettings.theme == "Dark"? "White": "Black"
                 text: qsTr("C:\\KF2Server")
                 font.bold: true
                 font.pixelSize: 17
@@ -290,6 +290,26 @@ Item {
                 font.bold: false
                 font.pixelSize: 17
             }
+        }
+
+        TextEdit {
+            id: textEditURLWebAdmin
+            x: 611
+            y: 338
+            width: 283
+            height: 20
+            text: qsTr("http://127.0.0.1:8080")
+            font.pixelSize: 17
+            color: appSettings.theme == "Dark"? "White": "Black"
+        }
+
+        Text {
+            id: element3
+            x: 450
+            y: 337
+            text: qsTr("URL of WebAdmin : ")
+            font.pixelSize: 17
+            color: appSettings.theme == "Dark"? "White": "Black"
         }
     }
 }

@@ -16,7 +16,7 @@ Item {
         WebEngineView
         {
             id: webEngineViewWebAdmin
-            url: "https://kf2-ma.th3-z.xyz"
+            url: "http://127.0.0.1:8080"
             anchors.fill: parent
         }
     }
