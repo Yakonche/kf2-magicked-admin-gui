@@ -4,16 +4,12 @@ import QtWebEngine 1.10
 
 Item {
     id: tabWebAdmin
-    width: 1600
-    height: 900
     visible: false
 
     ScrollView
     {
         x: 0
         y: 81
-        width: 1600
-        height: 820
         visible: true
         WebEngineView
         {

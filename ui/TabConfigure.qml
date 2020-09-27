@@ -4,8 +4,6 @@ import QtQuick.Controls 2.12
 Item {
     id: tabConfigure
     visible: false
-    width: 1600
-    height: 900
     Text {
         id: element15
         x: 473

@@ -3,65 +3,51 @@ import QtQuick.Controls 2.12
 
 Item {
     id: tabHome
-    width: 1600
-    height: 900
     visible: true
+
     Page {
-        id: page
-        x: 0
-        y: 0
-        width: 1600
-        height: 900
+        id: pageHome
         visible: true
+        anchors.verticalCenter: tabHome.verticalCenter
+        anchors.horizontalCenter: tabHome.horizontalCenter
+
+        Image {
+            id: imagehome
+            anchors.verticalCenter: pageHome.verticalCenter
+            anchors.horizontalCenter: pageHome.horizontalCenter
+            visible: true
+            source: "res/img/home.png"
+            anchors.verticalCenterOffset: -60
+        }
 
         Button {
-            id: testChat
-            //signal clicked()
-            // objectName: "testChat"
-            x: 585
-            y: 405
-            width: 112
-            height: 48
-            text: qsTr("Test chat")
+            id: buttonopen
+            signal clicked()
+            objectName: "OpenKF2MA"
+            text: qsTr("Open KF2-MA")
             visible: true
-            anchors.rightMargin: 729
-            anchors.bottomMargin: 391
-            anchors.leftMargin: 729
-            anchors.topMargin: 456
-            anchors.fill: parent
             onClicked: test_context.test_function()
+            anchors.verticalCenterOffset: 120
+            anchors.verticalCenter: imagehome.verticalCenter
+            anchors.horizontalCenter: imagehome.horizontalCenter
         }
 
         Button {
             id: buttonclose
             signal clicked()
             objectName: "CloseKF2MA"
-            x: 729
-            y: 536
-            width: 142
-            height: 53
             text: qsTr("Close KF2-MA")
             visible: true
-        }
-
-        Image {
-            id: imagehome
-            x: 447
-            y: 119
-            width: 706
-            height: 229
-            visible: true
-            source: "res/img/home.png"
-            fillMode: Image.PreserveAspectFit
-
-            MouseArea {
-                id: mouseArea
-                x: 343
-                y: 159
-                width: 355
-                height: 33
-                visible: true
-            }
+            anchors.verticalCenterOffset: 170
+            anchors.verticalCenter: imagehome.verticalCenter
+            anchors.horizontalCenter: imagehome.horizontalCenter
         }
     }
 }
+
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:1}
+}
+##^##*/
