@@ -6,21 +6,19 @@ import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 
 Rectangle {
-    height: 90
+    Layout.preferredHeight: 100
+    Layout.preferredWidth: 1040
     color: "#09203f"
     gradient: Gradient {
         GradientStop {
             position: 0
             color: "#09203f"
         }
-
         GradientStop {
             position: 1
             color: "#537895"
         }
     }
-    width: 850
-
     RowLayout {
         Layout.preferredHeight: 90
         id: rowLayout
@@ -29,7 +27,7 @@ Rectangle {
             Layout.bottomMargin: 0
             Layout.topMargin: 0
             Layout.leftMargin: 10
-            source: "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/54/54eb4cfaceedbfc779261e517973b3bcaa5dc02b_full.jpg"
+            source: "res/img/icon.png"
             Layout.preferredHeight: parent.height
             Layout.preferredWidth: parent.height
         }
@@ -37,29 +35,30 @@ Rectangle {
             id: columnLayout1
             RowLayout {
                 id: rowLayout1
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Text {
                     id: textPseudo
                     text: qsTr("Yakonche_with_a_huge_pseudonym")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    font.pointSize: 12
+                    color: "White"
                 }
                 Text {
                     id: elementCountry
                     text: qsTr("  Country : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementCountryValue
                     text: qsTr("France")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Image {
                     id: imageFlag
                     Layout.preferredWidth: 60
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    source: ""
+                    source: "res/country_flags/fr.svg"
                     Layout.preferredHeight: 30
                 }
                 Item {
@@ -69,6 +68,7 @@ Rectangle {
                 Button {
                     id: buttonSteamID
                     text: qsTr("Steam Profile")
+                    font.pointSize: 12
                     Layout.rightMargin: 10
                     Layout.fillWidth: false
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -103,69 +103,69 @@ Rectangle {
                 Text {
                     id: elementHealthNow
                     text: qsTr("125")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementHealthSeparate
                     text: qsTr("/")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementHealthMax
                     text: qsTr("125")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementHP
                     text: qsTr(" HP     ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Image {
                     id: imagePerk
-                    Layout.preferredWidth: 30
+                    Layout.preferredWidth: parent.height
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                    source: ""
-                    Layout.preferredHeight: 30
+                    source: "res/perk_icons/FieldMedic.png"
+                    Layout.preferredHeight: parent.height
                 }
                 Text {
                     id: elementPerk
                     text: qsTr("Field Medic")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementLVL
                     text: qsTr(" LVL ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementLVLNow
                     text: qsTr("25")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementTime
                     text: qsTr("   Time : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementTimeNow
                     text: qsTr("99h 59m 59s")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementSpace
                     text: qsTr(" ")
-                    color: appSettings.theme == "Dark" ? "white" : "black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Item {
                     id: element2
@@ -174,6 +174,7 @@ Rectangle {
                 Button {
                     id: buttonStats
                     text: qsTr("Stats")
+                    font.pointSize: 12
                     Layout.rightMargin: 10
                     Layout.fillWidth: false
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -185,74 +186,102 @@ Rectangle {
                 Text {
                     id: elementKills
                     text: qsTr("Kills : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementKillsCount
-                    text: qsTr("2342")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    text: qsTr("9 2342")
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementDeaths
                     text: qsTr(" Deaths : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementDeathsCount
                     text: qsTr("423")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementRatio
                     text: qsTr(" Ratio : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementRatioCount
                     text: qsTr("15,89")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementDosh
                     text: qsTr(" Đ : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementDoshCount
                     text: qsTr("2 568 746")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementPing
                     text: qsTr(" Ping : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementPingCount
                     text: qsTr("1024")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementIP
                     text: qsTr(" IP : ")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
                 }
                 Text {
                     id: elementIPCount
                     text: qsTr("85.168.60.156")
-                    color: appSettings.theme == "Dark" ? "White" : "Black"
-                    font.pixelSize: 15
+                    color: "White"
+                    font.pointSize: 12
+                }
+                ComboBox {
+                    id: comboBoxControls
+                    Layout.fillWidth: false
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                    Layout.preferredHeight: 30
+                    Layout.preferredWidth: 160
+                    font.bold: false
+                    visible: true
+                    font.pointSize: 12
+                    editable: false
+                    model: ListModel {
+                        ListElement {text: qsTr("Kick")}
+                        ListElement {text: qsTr("Session Ban")}
+                        ListElement {text: qsTr("Ban IP")}
+                        ListElement {text: qsTr("Ban Unique ID")}
+                        ListElement {text: qsTr("Mute Voice")}
+                        ListElement {text: qsTr("Unmute Voice")}
+                    }
+                }
+                Button {
+                    id: buttonGo
+                    text: qsTr("Go")
+                    font.pointSize: 12
+                    Layout.rightMargin: 10
+                    Layout.fillWidth: false
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                    Layout.preferredHeight: 30
                 }
             }
         }
@@ -264,6 +293,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.8999999761581421}
+    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
 }
 ##^##*/

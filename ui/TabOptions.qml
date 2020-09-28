@@ -5,15 +5,11 @@ import QtQuick.Controls.Material 2.12
 Item {
     id: tabOptions
     visible: true
-    width: 1600
-    height: 900
 
     Page {
         id: page2
         x: 0
         y: 0
-        width: 1600
-        height: 900
         visible: true
 
         CheckBox {

@@ -3,15 +3,11 @@ import QtQuick.Controls 2.12
 
 Item {
     id: tabServer
-    width: 1600
-    height: 900
 
     Page {
         id: page
         x: 0
         y: 0
-        width: 1600
-        height: 900
 
         Text {
             id: element

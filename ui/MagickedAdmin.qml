@@ -6,8 +6,6 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     id: applicationWindow
-    width: 1600
-    height: 900
     visible: true
     title: 'KF2 Magicked Admin 0.1.6'
     
@@ -37,8 +35,6 @@ ApplicationWindow {
 
     header: TabBar {
         id: bar
-        width: parent.width
-        anchors.topMargin: 0
         visible: true
         enabled: true
         TabButton {
@@ -84,13 +80,18 @@ ApplicationWindow {
         }
     }
     StackLayout {
-        x: 0
         visible: true
         anchors.top: parent.top
         anchors.topMargin: 0
         currentIndex: bar.currentIndex
-        
-        TabHome { visible: true}
+        id: stackMain
+        anchors.verticalCenter: applicationWindow.verticalCenter
+        anchors.horizontalCenter: applicationWindow.horizontalCenter
+        TabHome {
+            visible: true
+            anchors.verticalCenter: stackMain.verticalCenter
+            anchors.horizontalCenter: stackMain.horizontalCenter
+        }
         TabPatches {}
         TabConsole {}
         TabPlayers {}

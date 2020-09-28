@@ -5,15 +5,11 @@ import "cell"
 
 Item {
     id: tabMapsMods
-    width: 1600
-    height: 900
     
     Page {
         id: page
         x: 0
         y: 0
-        width: 1600
-        height: 900
         
         Button {
             id: button
